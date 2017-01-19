@@ -1,0 +1,48 @@
+{
+  "name": "redux-intl-connect",
+  "version": "1.0.0",
+  "description": "redux connect agnostic bindings for i18n with FormatJS formatMessage compatible API",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yeojz/redux-intl-connect.git"
+  },
+  "keywords": [
+    "translation",
+    "translate",
+    "formatting",
+    "format",
+    "reactjs",
+    "preact",
+    "react",
+    "globalization",
+    "localization",
+    "local",
+    "internationalization",
+    "i18n",
+    "intl"
+  ],
+  "author": "Gerald Yeo <gerald@fusedthought.com>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/yeojz/redux-intl-connect/issues"
+  },
+  "homepage": "https://github.com/yeojz/redux-intl-connect#readme",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-eslint": "^6.1.2",
+    "babel-preset-es2015": "^6.18.0",
+    "chai": "^3.5.0",
+    "eslint": "^3.13.1",
+    "mocha": "^3.2.0",
+    "webpack": "^1.14.0"
+  },
+  "dependencies": {
+    "invariant": "^2.2.2",
+    "lodash": "^4.17.4",
+    "redux": "^3.6.0"
+  }
+}
