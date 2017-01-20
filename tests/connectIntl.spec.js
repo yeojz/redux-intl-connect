@@ -17,7 +17,9 @@ describe('connectIntl', function() {
   it('calls connect on component', function() {
     const injector = stub();
     const connect = stub().returns(injector);
-    const result = connectIntl(connect)()('Component');
+
+    connectIntl(connect)()('Component');
+
     expect(connect.called).to.be.true;
     expect(injector.calledWith('Component')).to.be.true;
   });

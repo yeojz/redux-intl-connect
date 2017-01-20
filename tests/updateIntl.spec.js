@@ -15,7 +15,7 @@ describe('updateIntl', function(){
     expect(result).be.deep.equal(expected);
   });
 
-  function getUpdatePayload(type, payload) {
+  function getUpdatePayload() {
     return {
         locale: 'it',
         messages: {

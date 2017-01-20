@@ -7,7 +7,7 @@ export function injectIntl(
   mapStateToProps = createMapStateToProps()
 ) {
   if (!connect) {
-    invariant(false, `${LOG_PREFIX} missing argument 1: "connect" in injectIntl`);;
+    invariant(false, `${LOG_PREFIX} missing argument 1: "connect" in injectIntl`);
     return () => null;
   }
 

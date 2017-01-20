@@ -2,7 +2,7 @@ import {expect} from 'chai';
 import {stub} from 'sinon';
 import createMapStateToProps from '../src/createMapStateToProps';
 
-describe.only('createMapStateToProps', function() {
+describe('createMapStateToProps', function() {
 
   it('returns a function', function() {
     const result = createMapStateToProps();

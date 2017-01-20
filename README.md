@@ -26,7 +26,7 @@ Install the library:
 npm install redux-intl-connect --save
 ```
 
-Install a corresponding redux connect library, for example:
+Install a corresponding redux connect library. Examples:
 
 ```
 npm install react-redux

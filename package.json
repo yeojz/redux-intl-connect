@@ -6,8 +6,10 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production babel src --out-dir lib",
     "clean": "rimraf lib coverage",
+    "lint": "eslint --ext js src tests",
     "prepublish": "npm run clean && npm run build",
-    "test": "mocha --compilers js:babel-register 'tests/**/*.spec.@(js|jsx)'"
+    "test": "mocha --compilers js:babel-register 'tests/**/*.spec.@(js|jsx)'",
+    "posttest": "npm run lint"
   },
   "repository": {
     "type": "git",

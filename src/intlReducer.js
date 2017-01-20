@@ -16,6 +16,6 @@ export function intlReducer(state = initialState(), action = {}) {
     }
 
     return state;
-};
+}
 
 export default intlReducer;

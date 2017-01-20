@@ -16,7 +16,8 @@ describe('injectIntl', function() {
   it('calls connect on component', function() {
     const connected = stub();
     const connect = stub().returns(connected);
-    const result = injectIntl(connect, 'mapStateToProps')('Component');
+
+    injectIntl(connect, 'mapStateToProps')('Component');
 
     expect(connect.called).to.be.true;
     expect(connect.calledWith('mapStateToProps')).to.be.true;
