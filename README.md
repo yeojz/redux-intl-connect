@@ -2,19 +2,19 @@
 Redux connect agnostic bindings for i18n with formatMessage-like API.
 
 ## Why
-FormatJS and it's corresponding bindings for React, Ember, Angular is great.
+FormatJS and it's corresponding bindings for React, Ember, Angular with Redux is great.
 
-However, 2 use cases led to this project:
- 1. Location with slow internet speed and old browsers, meant the need for polyfills due to the absence of ECMAScript Internationalization API in older browsers. This also means a relatively large dependency download which is not ideal.
- 1. The only method you use might be formatMessage or a very small subset.
+However, 2 use cases in other projects led to this repository:
+ 1. Location with slow internet speed and older browsers, meant the need for polyfills due to the absence of ECMAScript Internationalization API. This also means a relatively large dependency download which is not ideal.
+ 1. The main function in use was `formatMessage`.
 
 ## About
-This library is not meant to be a 100% feature parity with the FormatJS bindings. It aims to
+This library is not meant to be a 100% feature parity with the FormatJS and Redux bindings. It aims to
 provide only basic functionality for use with your own custom message strings.
 
-Extending to other translation methods will be considered provided it fulfills point 1 on the above use case.
-
 Current it only supports `formatMessage` and provides a similar API influenced by the original library bindings.
+Extending to other translation methods will be considered provided it fulfills point 1 above.
+
 
 ## Installation
 Install the library:
@@ -23,7 +23,7 @@ Install the library:
 npm install redux-intl-connect --save
 ```
 
-Install a corresponding redux connect library:
+Install a corresponding redux connect library, for example:
 
 ```
 npm install react-redux
@@ -51,6 +51,7 @@ import {connectIntl} from 'redux-intl-connect';
 // Initialize connector.
 // You can put this in another file and import that file instead
 // if you do not want to do do this all the time.
+// eg: import connect from '<folder-path>/connected'
 const connector = connectIntl(connect);
 
 const propTypes = {
@@ -81,7 +82,7 @@ import {createStore, combineReducers} from 'redux';
 import {intlReducer} from 'redux-intl-connect';
 
 import Component from './Component';
-import reducers from '<path-to-reducer>';
+import reducers from '<folder-path>/reducers';
 
 const reducer = combineReducers({
   ...reducers,
@@ -134,10 +135,15 @@ store.dispatch(updateIntl({
 }));
 ```
 
+## Contribute
+Any contributions are welcome, whether it's updating the docs, generating examples or suggestions of new API methods.
+
 ## License
+
 redux-intl-connect is [BSD licensed](./LICENSE)
 
-**Acknowledgement**
+##Acknowledgement#
 
+Highly influenced by the following:
  - [react-intl](https://github.com/yahoo/react-intl)
  - [react-intl-redux](https://github.com/ratson/react-intl-redux)
