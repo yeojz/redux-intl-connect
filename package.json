@@ -51,6 +51,7 @@
     "mocha": "^3.2.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "redux": "^3.6.0",
     "rimraf": "^2.5.4",
     "sinon": "^1.17.7",
     "webpack": "^1.14.0"
@@ -58,6 +59,5 @@
   "dependencies": {
     "invariant": "^2.2.2",
     "lodash": "^4.17.4",
-    "redux": "^3.6.0"
   }
 }

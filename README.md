@@ -23,7 +23,7 @@ Extending to other translation methods will be considered provided it fulfills p
 Install the library:
 
 ```
-npm install redux-intl-connect --save
+npm install redux-intl-connect redux --save
 ```
 
 Install a corresponding redux connect library. Examples:
