@@ -1,6 +1,6 @@
 {
   "name": "redux-intl-connect",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "redux connect agnostic bindings for i18n with FormatJS formatMessage compatible API",
   "main": "lib/index.js",
   "scripts": {
