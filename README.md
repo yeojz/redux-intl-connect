@@ -139,11 +139,11 @@ store.dispatch(updateIntl({
 ```
 
 ## Contribute
-Any contributions are welcome, whether it's updating the docs, generating examples or suggestions of new API methods.
+Any contributions or suggestions to make this library better are welcomed.
 
 ## License
 
-redux-intl-connect is [BSD licensed](./LICENSE)
+`redux-intl-connect` is [BSD licensed](./LICENSE)
 
 ##Acknowledgement
 
