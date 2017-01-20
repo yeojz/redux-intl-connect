@@ -3,7 +3,7 @@ import {LOG_NAME} from './constants';
 import injectIntl from './injectIntl';
 import createMapStateToProps from './createMapStateToProps';
 
-function connectIntl(
+export function connectIntl(
   connect,
   mapStateToProps = createMapStateToProps()
 ) {

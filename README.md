@@ -1,5 +1,8 @@
-# redux-intl-connect
+# redux-intl-connect [![npm package][npm-badge]][npm-link]
+
 Redux connect agnostic bindings for i18n with formatMessage-like API.
+
+[![Build Status][build-badge]][build-link]
 
 ## Why
 FormatJS and it's corresponding bindings for React, Ember, Angular with Redux is great.
@@ -142,8 +145,14 @@ Any contributions are welcome, whether it's updating the docs, generating exampl
 
 redux-intl-connect is [BSD licensed](./LICENSE)
 
-##Acknowledgement#
+##Acknowledgement
 
 Highly influenced by the following:
  - [react-intl](https://github.com/yahoo/react-intl)
  - [react-intl-redux](https://github.com/ratson/react-intl-redux)
+
+ [npm-badge]: https://img.shields.io/npm/v/redux-intl-connect.svg?style=flat-square
+ [npm-link]: https://www.npmjs.com/package/redux-intl-connect
+
+ [build-badge]: https://img.shields.io/travis/yeojz/redux-intl-connect.svg?style=flat-square
+ [build-link]: https://travis-ci.org/yeojz/redux-intl-connect

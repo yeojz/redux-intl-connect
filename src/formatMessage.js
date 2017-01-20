@@ -7,6 +7,8 @@ import templateSettings from 'lodash/templateSettings';
 import {LOG_PREFIX} from './constants';
 import {initialState} from './intlReducer';
 
+const NODE_ENV = process.env.NODE_ENV;
+
 function formatMessage(state = {}) {
   templateSettings.interpolate = state.pattern || initialState().pattern;
 
@@ -20,7 +22,7 @@ function formatMessage(state = {}) {
     const message = get(state, ['messages', id], '');
 
     // Optimization: Avoid empty values in production, but allow in dev in case of error.
-    if (isEmpty(values) && process.env.NODE_ENV === 'production') {
+    if (NODE_ENV === 'production' && isEmpty(values)) {
       return message || defaultMessage || id;
     }
 

@@ -2,7 +2,7 @@ import invariant from 'invariant';
 import {LOG_PREFIX} from './constants';
 import createMapStateToProps from './createMapStateToProps';
 
-function injectIntl(
+export function injectIntl(
   connect,
   mapStateToProps = createMapStateToProps()
 ) {

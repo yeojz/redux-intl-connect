@@ -4,7 +4,7 @@ const defaultSelector = (state) => {
   return state.intl;
 }
 
-function createMapStateToProps(intlSelector = defaultSelector) {
+export function createMapStateToProps(intlSelector = defaultSelector) {
   return (state) => {
     const intl = intlSelector(state);
 

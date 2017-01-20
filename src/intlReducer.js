@@ -6,7 +6,7 @@ export const initialState = () => ({
     pattern: VARIABLE_PATTERN
 });
 
-function intlReducer(state = initialState(), action = {}) {
+export function intlReducer(state = initialState(), action = {}) {
 
     if (action.type === UPDATE_ACTION) {
         return {
