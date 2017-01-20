@@ -4,7 +4,7 @@ import isEmpty from 'lodash/isEmpty';
 import template from 'lodash/template';
 import templateSettings from 'lodash/templateSettings';
 
-import {LOG_NAME, __DEV__} from './constants';
+import {LOG_PREFIX} from './constants';
 import {initialState} from './intlReducer';
 
 function formatMessage(state = {}) {
@@ -20,14 +20,14 @@ function formatMessage(state = {}) {
     const message = get(state, ['messages', id], '');
 
     // Optimization: Avoid empty values in production, but allow in dev in case of error.
-    if (isEmpty(values) && !__DEV__) {
+    if (isEmpty(values) && process.env.NODE_ENV === 'production') {
       return message || defaultMessage || id;
     }
 
-    invariant(message, `${LOG_NAME} Missing message: "${id}" for locale: "${state.locale}"`);
+    invariant(message, `${LOG_PREFIX} Missing message: "${id}" for locale: "${state.locale}"`);
 
     if (!message && !defaultMessage) {
-      invariant(false, `${LOG_NAME} No default message set. Using id: "${id}" as fallback`);
+      invariant(false, `${LOG_PREFIX} No default message set. Using id: "${id}" as fallback`);
       return id;
     }
 

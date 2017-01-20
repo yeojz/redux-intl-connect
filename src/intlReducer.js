@@ -1,14 +1,14 @@
-import {LOCALE_UPDATE} from './constants';
+import {UPDATE_ACTION, VARIABLE_PATTERN} from './constants';
 
 export const initialState = () => ({
     locale: 'en',
     messages: {},
-    pattern: /{([\s\S]+?)}/g
+    pattern: VARIABLE_PATTERN
 });
 
 function intlReducer(state = initialState(), action = {}) {
 
-    if (action.type === LOCALE_UPDATE) {
+    if (action.type === UPDATE_ACTION) {
         return {
           ...state,
           ...action.payload

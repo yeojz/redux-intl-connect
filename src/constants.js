@@ -1,7 +1,3 @@
-const isDevelopment = () => (
-  process.env.NODE_ENV !== 'production'
-);
-
-export const LOCALE_UPDATE = '@@i18n/LOCALE_UPDATE';
-export const LOG_NAME = '[redux-intl-connect]';
-export const __DEV__ = isDevelopment();
+export const UPDATE_ACTION = '@@i18n/LOCALE_UPDATE';
+export const LOG_PREFIX = '[redux-intl-connect]';
+export const VARIABLE_PATTERN = /{([\s\S]+?)}/g;

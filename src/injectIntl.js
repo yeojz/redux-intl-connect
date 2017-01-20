@@ -1,5 +1,5 @@
 import invariant from 'invariant';
-import {LOG_NAME} from './constants';
+import {LOG_PREFIX} from './constants';
 import createMapStateToProps from './createMapStateToProps';
 
 function injectIntl(
@@ -7,7 +7,7 @@ function injectIntl(
   mapStateToProps = createMapStateToProps()
 ) {
   if (!connect) {
-    invariant(false, `${LOG_NAME} missing argument 1: "connect" in injectIntl`);;
+    invariant(false, `${LOG_PREFIX} missing argument 1: "connect" in injectIntl`);;
     return () => null;
   }
 

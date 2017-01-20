@@ -2,5 +2,9 @@
   "presets": [
       "es2015"
   ],
-  "plugins": []
+  "plugins": [
+    "transform-export-extensions",
+    "transform-object-rest-spread",
+    "dev-expression"
+  ]
 }

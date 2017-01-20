@@ -1,11 +1,12 @@
 import pick from 'lodash/pick';
-import {initialState, LOCALE_UPDATE} from './intlReducer';
+import {UPDATE_ACTION} from './constants';
+import {initialState} from './intlReducer';
 
 const ACCEPTABLE_KEYS = Object.keys(initialState());
 
 function updateIntl(keys = {}) {
   return {
-    type: LOCALE_UPDATE,
+    type: UPDATE_ACTION,
     payload: pick(keys, ACCEPTABLE_KEYS)
   };
 }
