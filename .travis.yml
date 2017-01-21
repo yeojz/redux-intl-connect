@@ -7,7 +7,7 @@ cache:
     - node_modules
 script: "npm run cover"
 after_success:
-  - coveralls
+  - "npm run coveralls"
 deploy:
   provider: npm
   email: ${NPM_EMAIL}
