@@ -6,7 +6,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production babel src --out-dir lib",
     "clean": "rimraf lib coverage",
-    "cover": "babel-node node_modules/.bin/istanbul cover _mocha -- 'tests/**/*.spec.@(js|jsx)'",
+    "coverage": "babel-node node_modules/.bin/istanbul cover _mocha -- 'tests/**/*.spec.@(js|jsx)'",
     "coveralls": "cat coverage/lcov.info | coveralls",
     "lint": "eslint --ext js src tests",
     "prepublish": "npm run clean && npm run build",

@@ -5,9 +5,9 @@ node_js:
 cache:
   directories:
     - node_modules
-script: "npm run cover"
+script: npm run coverage && npm run lint
 after_success:
-  - "npm run coveralls"
+  - npm run coveralls
 deploy:
   provider: npm
   email: ${NPM_EMAIL}
