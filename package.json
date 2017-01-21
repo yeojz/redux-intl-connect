@@ -5,13 +5,13 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production babel src --out-dir lib",
-    "clean": "rimraf lib coverage",
+    "clean": "rimraf lib coverage .nyc_output",
     "lint": "eslint --ext js src tests",
     "prepare": "npm run clean && npm run build",
     "test": "cross-env NODE_ENV=test nyc --reporter=text-summary mocha 'tests/**/*.spec.@(js|jsx)'",
     "posttest": "npm run lint",
-    "coverage": "nyc report --reporter=lcov",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "cross-env NODE_ENV=test nyc report --reporter=lcov",
+    "coveralls": "cross-env NODE_ENV=test nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
