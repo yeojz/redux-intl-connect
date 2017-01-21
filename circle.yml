@@ -11,7 +11,7 @@ test:
     - npm run coveralls
 deployment:
   release:
-    tag: /^v[0-9]+(\.[0-9]+)*$/
+    tag: /v[0-9]+(\.[0-9]+)*/
     owner: yeojz
     commands:
       - echo -e "$NPM_USER\n$NPM_PASS\n$NPM_EMAIL" | npm login
