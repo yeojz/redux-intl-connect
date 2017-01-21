@@ -6,19 +6,16 @@ Redux connect agnostic bindings for i18n with formatMessage-like API.
 [![Coverage Status][coveralls-badge]][coveralls-link]
 
 ## Why
-FormatJS and it's corresponding bindings for React, Ember, Angular with Redux is great.
+FormatJS and it's corresponding bindings for React, Ember, Angular with Redux are great. However, 2 use cases in other projects led to this:
 
-However, 2 use cases in other projects led to this repository:
  1. Location with slow internet speed and older browsers, meant the need for polyfills due to the absence of ECMAScript Internationalization API. This also means a relatively large dependency download which is not ideal.
  1. The main function in use was `formatMessage`.
 
 ## About
-This library is not meant to be a 100% feature parity with the FormatJS and Redux bindings. It aims to
-provide only basic functionality for use with your own custom message strings.
+This library does not depend on any browser Internationalization API. Currently it only supports `formatMessage` and provides a similar API influenced by the original library bindings.
 
-Current it only supports `formatMessage` and provides a similar API influenced by the original library bindings.
+It is not meant to be a 100% feature parity with the FormatJS and their Redux bindings.
 Extending to other translation methods will be considered provided it fulfills point 1 above.
-
 
 ## Installation
 Install the library:
