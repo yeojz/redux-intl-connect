@@ -3,6 +3,7 @@
 Redux connect agnostic bindings for i18n with formatMessage-like API.
 
 [![Build Status][build-badge]][build-link]
+[![Coverage Status][coveralls-badge]][coveralls-link]
 
 ## Why
 FormatJS and it's corresponding bindings for React, Ember, Angular with Redux is great.
@@ -156,3 +157,6 @@ Highly influenced by the following:
 
  [build-badge]: https://img.shields.io/travis/yeojz/redux-intl-connect.svg?style=flat-square
  [build-link]: https://travis-ci.org/yeojz/redux-intl-connect
+ 
+ [coveralls-badge]: https://img.shields.io/coveralls/yeojz/redux-intl-connect.svg?style=flat-square
+ [coveralls-link]: https://coveralls.io/github/yeojz/redux-intl-connect
