@@ -7,7 +7,7 @@
     "build": "cross-env NODE_ENV=production babel src --out-dir lib",
     "clean": "rimraf lib coverage",
     "lint": "eslint --ext js src tests",
-    "prepublish": "npm run clean && npm run build",
+    "prepare": "npm run clean && npm run build",
     "test": "cross-env NODE_ENV=test nyc --reporter=text-summary mocha 'tests/**/*.spec.@(js|jsx)'",
     "posttest": "npm run lint",
     "coverage": "nyc report --reporter=lcov",
