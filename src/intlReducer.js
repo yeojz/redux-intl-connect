@@ -8,7 +8,7 @@ export const initialState = () => ({
 
 export function intlReducer(state = initialState(), action = {}) {
 
-    if (action.type === UPDATE_ACTION) {
+    if (action && action.type === UPDATE_ACTION) {
         return {
           ...state,
           ...action.payload

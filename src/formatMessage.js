@@ -6,7 +6,7 @@ import templateSettings from 'lodash/templateSettings';
 
 import {LOG_PREFIX, VARIABLE_PATTERN} from './constants';
 
-let ENV = process.env.NODE_ENV;
+const ENV = process.env.NODE_ENV;
 
 function formatMessage(state = {}) {
   templateSettings.interpolate = state.pattern || VARIABLE_PATTERN;

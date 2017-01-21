@@ -57,6 +57,15 @@ describe('formatMessage', function () {
     expect(result).to.throw(Error);
   });
 
+  it('throws error when unexpected messageDescriptor', function () {
+    const result = () => formatMessage({})(null);
+    expect(result).to.throw(Error);
+
+    const result2 = () => formatMessage({})(void 0);
+    expect(result2).to.throw(Error);
+  });
+
+
   it('returns message directly (ENV:production, values empty)', function () {
     const values = rewireEnv();
     const state = getState();

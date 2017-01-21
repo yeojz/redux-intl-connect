@@ -1,6 +1,6 @@
 import createHelpers from './createHelpers';
 
-const defaultSelector = (state) => {
+export const defaultSelector = (state) => {
   return state.intl;
 }
 
