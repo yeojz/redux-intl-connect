@@ -2,14 +2,14 @@ import {expect} from 'chai';
 import {stub} from 'sinon';
 import createMapStateToProps from '../src/createMapStateToProps';
 
-describe('createMapStateToProps', function() {
+describe('createMapStateToProps', function () {
 
-  it('returns a function', function() {
+  it('returns a function', function () {
     const result = createMapStateToProps();
     expect(result).to.be.a.function;
   });
 
-  it('returns prop object', function() {
+  it('returns prop object', function () {
     const selector = stub().returns({
       locale: 'it'
     });

@@ -2,13 +2,13 @@ import {expect} from 'chai';
 import {UPDATE_ACTION} from '../src/constants';
 import intlReducer, {initialState} from '../src/intlReducer';
 
-describe('intlReducer', function() {
-  it('starts with initial state', function() {
+describe('intlReducer', function () {
+  it('starts with initial state', function () {
     const result = intlReducer(undefined, {});
     expect(result).be.deep.equal(initialState());
   });
 
-  it('updates state', function() {
+  it('updates state', function () {
     const action = {
       type: UPDATE_ACTION,
       payload: getUpdatePayload()

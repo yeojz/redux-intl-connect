@@ -7,8 +7,7 @@ general:
       - gh-pages
 test:
   override:
-    - npm run coverage
-    - npm run lint
+    - npm run test
     - npm run coveralls
 deployment:
   release:
