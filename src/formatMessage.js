@@ -6,7 +6,7 @@ import templateSettings from 'lodash/templateSettings';
 
 import {LOG_PREFIX, VARIABLE_PATTERN} from './constants';
 
-const NODE_ENV = process.env.NODE_ENV;
+let ENV = process.env.NODE_ENV;
 
 function formatMessage(state = {}) {
   templateSettings.interpolate = state.pattern || VARIABLE_PATTERN;
@@ -21,7 +21,7 @@ function formatMessage(state = {}) {
     const message = get(state, ['messages', id], '');
 
     // Optimization: Immediately returns possible values
-    if (NODE_ENV === 'production' && isEmpty(values)) {
+    if (ENV === 'production' && isEmpty(values)) {
       return message || defaultMessage || id;
     }
 

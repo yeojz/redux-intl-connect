@@ -9,6 +9,19 @@ describe('injectIntl', function () {
     expect(result).to.throw(Error);
   });
 
+  it('returns noop when invariant is disabled', function () {
+    const invariant = stub();
+    injectIntl.__Rewire__('invariant', invariant);
+
+    const result = injectIntl();
+
+    expect(result).to.be.a.function;
+    expect(result()).to.be.null;
+    expect(invariant.called).to.be.true;
+
+    injectIntl.__ResetDependency__('invariant');
+  });
+
   it('returns a function', function () {
     const result = injectIntl(() => null);
     expect(result).to.be.a.function;
