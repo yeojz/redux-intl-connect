@@ -7,7 +7,7 @@ general:
       - gh-pages
 deployment:
   coverage:
-    branch: [master, /^feature\/.*/, /^hotfix\/.*/]
+    branch: master
     owner: yeojz
     commands:
       - npm run coveralls
