@@ -7,7 +7,7 @@ general:
       - gh-pages
 deployment:
   coverage:
-    branch: master
+    branch: [master, /^feature\/.*/, /^hotfix\/.*/]
     owner: yeojz
     commands:
       - npm run coveralls
@@ -19,5 +19,3 @@ deployment:
       - npm run prepare
       - npm publish
       - npm logout
-      - npm install -g yarn
-      - npm run deploy-gh-pages
