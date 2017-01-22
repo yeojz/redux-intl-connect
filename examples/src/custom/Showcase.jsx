@@ -41,7 +41,7 @@ const selectLanguage = (value, updateIntl) => (
 
 const Showcase = (props) => {
   const text = props.intl.formatMessage({id: 'intro'}, {name: 'hello'});
-  const locale = props.intl.getLocale();
+  const locale = props.intl.locale;
 
   return (
     <div className='showcase'>

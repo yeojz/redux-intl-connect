@@ -4709,9 +4709,9 @@ redux:
     loose-envify "^1.1.0"
     symbol-observable "^1.0.2"
 
-redux-intl-connect:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/redux-intl-connect/-/redux-intl-connect-0.1.5.tgz#6897b4c7ac6c2ffd9afdd1bf8544295f205647bf"
+redux-intl-connect@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/redux-intl-connect/-/redux-intl-connect-1.1.0.tgz#671ceb502ae4f441f9a064a3584511766354fad4"
   dependencies:
     invariant "^2.2.2"
     lodash "^4.17.4"

@@ -16,7 +16,7 @@
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
-    "redux-intl-connect": "^0.1.5"
+    "redux-intl-connect": "1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
