@@ -1,9 +1,15 @@
 # redux-intl-connect [![npm package][npm-badge]][npm-link]
 
-Redux connect agnostic bindings for i18n with formatMessage-like API.
-
 [![Build Status][build-badge]][build-link]
 [![Coverage Status][coveralls-badge]][coveralls-link]
+
+## About
+`redux-intl-connect` is a redux connector agnostic binding for i18n with formatMessage-like API.
+
+This library does not depend on any browser Internationalization API. Currently it only supports `formatMessage` and provides a similar API influenced by the original library bindings.
+
+It is not meant to be a 100% feature parity with the FormatJS and their Redux bindings.
+Extending to other translation methods will be considered if it fulfills point 1 under "Why" below.
 
 ## Why
 FormatJS and it's corresponding bindings for React, Ember, Angular with Redux are great. However, 2 use cases in other projects led to this:
@@ -11,11 +17,10 @@ FormatJS and it's corresponding bindings for React, Ember, Angular with Redux ar
  1. Location with slow internet speed and older browsers, meant the need for polyfills due to the absence of ECMAScript Internationalization API. This also means a relatively large dependency download which is not ideal.
  1. The main function in use was `formatMessage`.
 
-## About
-This library does not depend on any browser Internationalization API. Currently it only supports `formatMessage` and provides a similar API influenced by the original library bindings.
+## Demo
 
-It is not meant to be a 100% feature parity with the FormatJS and their Redux bindings.
-Extending to other translation methods will be considered provided it fulfills point 1 above.
+ - [Website](https://yeojz.github.io/redux-intl-connect)
+ - [Source](https://github.com/yeojz/redux-intl-connect/tree/master/src)
 
 ## Installation
 Install the library:
@@ -80,6 +85,7 @@ export default connector(mapStateToProps, mapDispatchToProps)(Component);
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {createStore, combineReducers} from 'redux';
+import {Provider} from 'react-redux';
 import {intlReducer} from 'redux-intl-connect';
 
 import Component from './Component';

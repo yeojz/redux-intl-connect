@@ -1,0 +1,43 @@
+.showcase {
+  background: rgb(112, 70, 178);
+  font-weight: 300;
+  margin: 1em 0;
+  padding: 1em;
+  text-align: center;
+}
+.showcase .input,
+.showcase .select {
+  background: 0;
+  border: 0;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  outline: none;
+  padding: 0;
+}
+.showcase .words,
+.showcase .selector {
+  color: #fff;
+  display: block;
+}
+.showcase .selector {
+  background: rgba(255,255,255,0.2);
+  font-size: 1.2em;
+  margin: 0.5em;
+  padding: 0 0.5em;
+  width: calc(100% - 1em);
+}
+@media (min-width: 40em) {
+  .showcase {
+    margin: 0;
+  }
+  .showcase .words,
+  .showcase .selector {
+    display: inline-block;
+    font-size: 1.4em;
+  }
+  .showcase .selector {
+    margin: 0 0.5em;
+    width: 10em;
+  }
+}

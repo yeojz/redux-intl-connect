@@ -1,0 +1,40 @@
+.app-content {
+  background: #f9f9f9;
+  clear: both;
+  color: #333;
+  min-height: calc(100vh - 12em);
+  padding: 0;
+  margin: 0;
+}
+.app-content .tagline {
+  margin: 0;
+  display: block;
+  padding: 3em 5em 1em;
+  font-size: 1em;
+  font-weight: 300;
+  text-align: center;
+}
+.app-footer {
+  box-sizing: border-box;
+  line-height: 2em;
+  padding: 0.5em 1em;
+  color: #666;
+  text-align: right;
+}
+.app-footer a {
+  color: rgb(112, 70, 178);
+  text-decoration: none;
+}
+.app-footer a:hover {
+  opacity: 0.8;
+}
+@media (min-width: 40em) {
+  .app-content {
+    min-height: calc(100vh - 8em);
+  }
+  .app-content .tagline {
+    font-size: 2em;
+    margin-bottom: 1em;
+    padding: 4em 0 1em;
+  }
+}

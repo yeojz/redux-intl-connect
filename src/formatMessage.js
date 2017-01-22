@@ -20,7 +20,6 @@ function formatMessage(state = {}) {
 
     const message = get(state, ['messages', id], '');
 
-    // Optimization: Immediately returns possible values
     if (ENV === 'production' && isEmpty(values)) {
       return message || defaultMessage || id;
     }

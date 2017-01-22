@@ -1,0 +1,13 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.word-highlight-white {
+  border-bottom: 2px #fff dotted;
+  display: inline-block;
+}
+.word-highlight-black {
+  border-bottom: 2px #333 dotted;
+  display: inline-block;
+}
