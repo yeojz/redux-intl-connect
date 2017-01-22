@@ -1,0 +1,28 @@
+{
+  "name": "redux-intl-connect-website",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://yeojz.github.io/redux-intl-connect",
+  "devDependencies": {
+    "eslint": "^3.14.0",
+    "eslint-plugin-react": "^6.9.0",
+    "gh-pages": "^0.12.0",
+    "react-scripts": "0.8.5"
+  },
+  "dependencies": {
+    "basscss": "^8.0.3",
+    "basscss-forms": "^1.0.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.2",
+    "redux": "^3.6.0",
+    "redux-intl-connect": "^0.1.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && gh-pages -d build"
+  }
+}

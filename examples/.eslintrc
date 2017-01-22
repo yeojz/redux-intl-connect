@@ -14,7 +14,11 @@
       "jsx": true
     }
   },
+  "plugins": [
+    "react"
+  ],
   "extends": [
-    "eslint:recommended"
+    "eslint:recommended",
+    "plugin:react/recommended"
   ]
 }
