@@ -4,11 +4,11 @@
 [![Coverage Status][coveralls-badge]][coveralls-link]
 
 ## About
-`redux-intl-connect` is a redux connector agnostic binding for i18n with formatMessage-like API.
+`redux-intl-connect` is a redux connector agnostic binding for i18n with formatMessage inspired API.
 
-This library does not depend on any browser Internationalization API. Currently it only supports `formatMessage` and provides a similar API influenced by the original library bindings.
+This library does not depend on any browser Internationalization API. Currently it only supports `formatMessage` and provides an API for accessing messages/keys in store similar to the original library bindings.
 
-It is not meant to be a 100% feature parity with the FormatJS and their Redux bindings.
+It is NOT meant to have a 100% feature parity with the redux bindings for FormatJS.
 Extending to other translation methods will be considered if it fulfills point 1 under "Why" below.
 
 ## Why
@@ -119,7 +119,7 @@ const initialState = {
   intl: {
     locale: 'it',
     messages: {
-      'app.greeting': 'Ciao!',
+      'greeting': 'Ciao!',
     },
   },
   // ...other initialState
@@ -128,10 +128,9 @@ const initialState = {
 const store = createStore(reducer, initialState);
 ```
 
+### Switching `locale` and `messages` on request
 
-### Switch `locale` and `messages` on request
-
-You could also switch `locale` on user's request by dispatching `updateIntl` action.
+You could switch `locale` on user's request by dispatching `updateIntl` action.
 
 ```js
 import {updateIntl} from 'redux-intl-connect';
@@ -140,6 +139,27 @@ store.dispatch(updateIntl({
   locale,
   messages,
 }));
+```
+
+In a real-world scenario, an action will be dispatched to fetch translations from a server
+before `updateIntl` is being called. An example with redux-thunk would possibly be:
+
+```js
+import {updateIntl} from 'redux-intl-connect';
+
+const getAndUpdateIntl = (locale) => (dispatch) => {
+
+  fetch('url-to-messages')
+    .then(function(response) {
+       return response.text()
+     })
+    .then((body) => {
+        dispatch(updateIntl({
+          locale,
+          messages: body
+        }))
+    });
+}
 ```
 
 ## Contribute

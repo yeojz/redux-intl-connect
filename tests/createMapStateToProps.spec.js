@@ -20,14 +20,14 @@ describe('createMapStateToProps', function () {
     expect(result.key).to.equal('it');
   });
 
-  it('calls createHelpers with intl values', function () {
-    const createHelpers = stub();
-    createMapStateToProps.__Rewire__('createHelpers', createHelpers);
+  it('calls createIntlObject with intl values', function () {
+    const createIntlObject = stub();
+    createMapStateToProps.__Rewire__('createIntlObject', createIntlObject);
 
     createMapStateToProps()({intl: 'test'});
-    expect(createHelpers.calledWith('test')).to.be.true;
+    expect(createIntlObject.calledWith('test')).to.be.true;
 
-    createMapStateToProps.__ResetDependency__('createHelpers');
+    createMapStateToProps.__ResetDependency__('createIntlObject');
   });
 
   it('returns intl key in state', function () {

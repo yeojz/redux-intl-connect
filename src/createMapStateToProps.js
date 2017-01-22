@@ -1,4 +1,4 @@
-import createHelpers from './createHelpers';
+import createIntlObject from './createIntlObject';
 
 export const defaultSelector = (state) => {
   return state.intl;
@@ -9,7 +9,7 @@ export function createMapStateToProps(intlSelector = defaultSelector) {
     const intl = intlSelector(state);
 
     return {
-      intl: createHelpers(intl),
+      intl: createIntlObject(intl),
       key: intl.locale
     };
   };
