@@ -178,8 +178,8 @@ Highly influenced by the following:
  [npm-badge]: https://img.shields.io/npm/v/redux-intl-connect.svg?style=flat-square
  [npm-link]: https://www.npmjs.com/package/redux-intl-connect
 
- [build-badge]: https://img.shields.io/circleci/project/github/yeojz/redux-intl-connect.svg?style=flat-square
- [build-link]: https://circleci.com/gh/yeojz/redux-intl-connect
+ [build-badge]: https://img.shields.io/travis/yeojz/redux-intl-connect.svg?style=flat-square
+ [build-link]: https://travis-ci.org/yeojz/redux-intl-connect
 
  [coveralls-badge]: https://img.shields.io/coveralls/yeojz/redux-intl-connect.svg?style=flat-square
  [coveralls-link]: https://coveralls.io/github/yeojz/redux-intl-connect
