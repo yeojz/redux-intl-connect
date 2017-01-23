@@ -10,7 +10,7 @@
     "clean": "rimraf lib coverage .nyc_output",
     "lint": "eslint --ext js src tests",
     "test": "cross-env NODE_ENV=test nyc --reporter=text-summary mocha 'tests/**/*.spec.@(js|jsx)'",
-    "posttest": "npm run lint",
+    "test:watch": "npm run test -- --watch",
     "coverage": "cross-env NODE_ENV=test nyc report --reporter=lcov",
     "coveralls": "cross-env NODE_ENV=test nyc report --reporter=text-lcov | coveralls"
   },
