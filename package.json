@@ -5,10 +5,10 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production babel src --out-dir lib",
+    "build-deploy": "npm run clean && npm run build",
     "deploy-gh-pages": "cd examples && yarn run deploy",
     "clean": "rimraf lib coverage .nyc_output",
     "lint": "eslint --ext js src tests",
-    "prepare": "npm run clean && npm run build",
     "test": "cross-env NODE_ENV=test nyc --reporter=text-summary mocha 'tests/**/*.spec.@(js|jsx)'",
     "posttest": "npm run lint",
     "coverage": "cross-env NODE_ENV=test nyc report --reporter=lcov",

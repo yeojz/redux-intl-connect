@@ -5,17 +5,17 @@ general:
   branches:
     ignore:
       - gh-pages
+test:
+  pre:
+    - npm run clean
+  post:
+    - npm run coveralls
 deployment:
-  coverage:
-    branch: [master, /^feature\/.*/, /^hotfix\/.*/]
-    owner: yeojz
-    commands:
-      - npm run coveralls
   release:
     tag: /^v[0-9]+(\.[0-9]+)*$/
     owner: yeojz
     commands:
+      - npm run build-deploy
       - echo -e "$NPM_USER\n$NPM_PASS\n$NPM_EMAIL" | npm login
-      - npm run prepare
       - npm publish
       - npm logout
