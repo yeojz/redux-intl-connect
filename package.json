@@ -12,7 +12,7 @@
     "test": "cross-env NODE_ENV=test nyc --reporter=text-summary mocha 'tests/**/*.spec.@(js|jsx)'",
     "posttest": "npm run lint",
     "coverage": "cross-env NODE_ENV=test nyc report --reporter=lcov",
-    "coveralls": "npm run coverage && cat coverage/lcov.info | coveralls"
+    "coveralls": "cat coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",

@@ -8,7 +8,7 @@ cache:
 before_script:
   - npm run clean
 after_success:
-  - npm run coveralls
+  - npm run coverage && npm run coveralls
 before_deploy:
   - npm run build-deploy
 deploy:

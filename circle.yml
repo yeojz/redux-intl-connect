@@ -9,7 +9,7 @@ test:
   pre:
     - npm run clean
   post:
-    - npm run coveralls
+    - npm run coverage && npm run coveralls
 deployment:
   release:
     tag: /^v[0-9]+(\.[0-9]+)*$/
