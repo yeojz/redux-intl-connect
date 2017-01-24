@@ -6,9 +6,9 @@
 [![PRs Welcome][pr-welcome-badge]][pr-welcome-badge]
 
 ## About
-`redux-intl-connect` is a redux connect agnostic binding for i18n.
+`redux-intl-connect` is a connect agnostic binding for i18n via redux, with support for [ICU MessageFormat](http://userguide.icu-project.org/formatparse/messages).
 
-This library does not depend on any browser Internationalization API. Currently it provides a single method: `formatMessage` with it's API inspired by the FormatJS / Intl implementation.
+This library does not depend on any browser Internationalization API. Currently it provides a single method: `formatMessage` with it's API inspired by the FormatJS's formatMessage function signature.
 
 It is NOT meant to have a 100% feature parity with the redux bindings for FormatJS. Extending to other translation methods will be considered if it fulfills point 1 under "Why" below.
 
@@ -166,6 +166,17 @@ const getAndUpdateIntl = (locale) => (dispatch) => {
 }
 ```
 
+## Untested Intl support
+
+As the dependent library `messageformat` has optional support for
+browser ECMAScript Intl, you can optionally turn on this support by
+dispatching or setting `ecmaSupport` value in the reducer to `true`.
+
+```js
+store.dispatch(updateIntl({ecmaSupport: true});
+```
+
+
 ## Links
 
 - [Contributing Guide](./CONTRIBUTING.md)
@@ -180,6 +191,8 @@ Highly influenced by the following libaries:
 
 - [react-intl](https://github.com/yahoo/react-intl)
 - [react-intl-redux](https://github.com/ratson/react-intl-redux)
+
+ICU MessageFormat parsing is done via [messageformat](https://github.com/messageformat/messageformat.js) package.
 
 [npm-badge]: https://img.shields.io/npm/v/redux-intl-connect.svg?style=flat-square
 [npm-link]: https://www.npmjs.com/package/redux-intl-connect
