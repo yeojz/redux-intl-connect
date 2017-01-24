@@ -33,7 +33,7 @@ describe('intlReducer', function () {
       messages: {
         a: 'b'
       },
-      pattern: /a-z/
+      ecmaSupport: false
     };
   }
 });

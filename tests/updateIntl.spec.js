@@ -61,7 +61,7 @@ describe('updateIntl', function (){
         messages: {
           a: "b"
         },
-        pattern: /a-z/
+        ecmaSupport: true
     };
   }
 });

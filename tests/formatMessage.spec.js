@@ -1,5 +1,6 @@
 import {expect} from 'chai';
 import {stub} from 'sinon';
+import MessageFormat from 'messageformat';
 import formatMessage from '../src/formatMessage';
 
 describe('formatMessage', function () {
@@ -7,6 +8,14 @@ describe('formatMessage', function () {
   it('returns a function', function () {
     const result = formatMessage();
     expect(result).to.be.a.function;
+  });
+
+  it('returns empty string when no locale is detected', function () {
+    const result = formatMessage({})({
+      id: 'test',
+    });
+
+    expect(result).to.equal('');
   });
 
   it('returns message from id', function () {
@@ -30,38 +39,30 @@ describe('formatMessage', function () {
   });
 
   it('returns default message when id not found', function () {
-    const result = formatMessage({})({
-      id: 'test',
+    const state = getState();
+    const result = formatMessage(state)({
+      id: 'test-nothing',
       defaultMessage: 'it is missing'
     });
 
     expect(result).to.equal('it is missing');
   });
 
-  it('returns default message from id with values replaced', function () {
-    const result = formatMessage({})({
-      id: 'test',
-      defaultMessage: 'it is missing {s}'
-    }, {
-      s: 'something'
-    });
-
-    expect(result).to.equal('it is missing something');
-  });
-
   it('throws error when missing id and defaultMessage', function () {
-    const result = () => formatMessage({})({
-      id: 'test'
+    const state = getState();
+    const result = () => formatMessage(state)({
+      id: 'test-nothing'
     });
 
     expect(result).to.throw(Error);
   });
 
   it('throws error when unexpected messageDescriptor', function () {
-    const result = () => formatMessage({})(null);
+    const state = getState();
+    const result = () => formatMessage(state)(null);
     expect(result).to.throw(Error);
 
-    const result2 = () => formatMessage({})(void 0);
+    const result2 = () => formatMessage(state)(void 0);
     expect(result2).to.throw(Error);
   });
 
@@ -79,8 +80,9 @@ describe('formatMessage', function () {
 
   it('returns defaultMessage directly (ENV:production, values empty)', function () {
     const values = rewireEnv();
-    const result = formatMessage({})({
-      id: 'test',
+    const state = getState();
+    const result = formatMessage(state)({
+      id: 'test-nothing',
       defaultMessage: 'it is missing'
     });
 
@@ -90,22 +92,24 @@ describe('formatMessage', function () {
 
   it('returns id directly (ENV:production, values empty)', function () {
     const values = rewireEnv();
-    const result = formatMessage({})({
-      id: 'test',
+    const state = getState();
+    const result = formatMessage(state)({
+      id: 'test-nothing',
     });
 
-    testResult(result, values, 'test');
+    testResult(result, values, 'test-nothing');
     resetEnv();
   });
 
   it('returns id when invariant is disabled with no message/defaultMessage', function () {
+    const state = getState();
     const invariant = stub();
     formatMessage.__Rewire__('invariant', invariant);
 
-    const result = formatMessage({})({
-      id: 'test',
+    const result = formatMessage(state)({
+      id: 'test-nothing',
     });
-    expect(result).to.equal('test');
+    expect(result).to.equal('test-nothing');
     expect(invariant.called).to.be.true;
     formatMessage.__ResetDependency__('invariant');
   });
@@ -113,10 +117,10 @@ describe('formatMessage', function () {
   function getState() {
     return {
       locale: 'en',
-      messages: {
+      messages: new MessageFormat('en').compile({
         test: 'let us test',
         testvar: 'let us replace {s}'
-      }
+      })
     };
   }
 
