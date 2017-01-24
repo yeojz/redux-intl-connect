@@ -6,9 +6,9 @@
 [![PRs Welcome][pr-welcome-badge]][pr-welcome-badge]
 
 ## About
-`redux-intl-connect` is a connect agnostic binding for i18n via redux, with support for [ICU MessageFormat](http://userguide.icu-project.org/formatparse/messages).
+`redux-intl-connect` is a redux `connect` agnostic binding for internationalizing your application, with support for [ICU MessageFormat](http://userguide.icu-project.org/formatparse/messages).
 
-This library does not depend on any browser Internationalization API. Currently it provides a single method: `formatMessage` with it's API inspired by the FormatJS's formatMessage function signature.
+This library does not depend on the ECMAScript Internationalization API. It currently provides a single method: `formatMessage` with it's API inspired by the FormatJS library `formatMessage` method signature.
 
 It is NOT meant to have a 100% feature parity with the redux bindings for FormatJS. Extending to other translation methods will be considered if it fulfills point 1 under "Why" below.
 
@@ -145,8 +145,7 @@ store.dispatch(updateIntl({
 }));
 ```
 
-In a real-world scenario, an action will be dispatched to fetch translations from a server
-before `updateIntl` is being called. An possible example with `redux-thunk` would be:
+*In a "real-world" scenario*, an action will be dispatched to fetch translations from a server before `updateIntl` is being called. An possible example with `redux-thunk` would be:
 
 ```js
 import {updateIntl} from 'redux-intl-connect';
@@ -166,16 +165,15 @@ const getAndUpdateIntl = (locale) => (dispatch) => {
 }
 ```
 
-## Untested Intl support
+## Intl Support
 
-As the dependent library `messageformat` has optional support for
-browser ECMAScript Intl, you can optionally turn on this support by
-dispatching or setting `ecmaSupport` value in the reducer to `true`.
+While it is not the goal of this project, as stated above (in `Why, Point 1`), the `messageformat` package which was introduced as the dependent library in v2, has optional support for browser ECMAScript Intl.
+
+As such, you can optionally turn on this support by dispatching or setting `ecmaSupport` value in the reducer to `true`. You'll need the corresponding polyfill if you want cross browser version support.
 
 ```js
-store.dispatch(updateIntl({ecmaSupport: true});
+store.dispatch(updateIntl({ecmaSupport: true}));
 ```
-
 
 ## Links
 
