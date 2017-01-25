@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import mockMessageFormat from './mocks/messageformat';
-import intlSelector from '../src/intlSelector';
+import intlSelector, {createIntlSelector} from '../src/intlSelector';
 
 describe('intlSelector', function () {
 
@@ -20,8 +20,11 @@ describe('intlSelector', function () {
   it('returns empty object when unable to locale intl', function () {
     const result = intlSelector();
     expect(result).to.be.empty;
-  })
+  });
 
+  it('returns cache when cache intl and reducer intl is the same.', function () {
+
+  });
 
   function getState() {
     return {

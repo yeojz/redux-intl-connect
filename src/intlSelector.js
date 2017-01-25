@@ -1,21 +1,28 @@
 import MessageFormat from 'messageformat';
 import isEmpty from 'lodash/isEmpty';
 
-export function intlSelector(state = {}) {
-  const {intl} = state;
+export function createIntlSelector() {
+  let cache = {};
 
-  if (isEmpty(intl)) {
-    return {};
-  }
+  return (state = {}) => {
+    const {intl} = state;
 
-  const messages = new MessageFormat(intl.locale)
-    .setIntlSupport(intl.ecmaSupport)
-    .compile(intl.messages);
+    if (isEmpty(intl) || !intl.locale) {
+      cache = {}
+      return cache;
+    }
 
-  return {
-    ...intl,
-    messages
+    if (cache.locale === intl.locale) {
+      return cache;
+    }
+
+    const messages = new MessageFormat(intl.locale)
+      .setIntlSupport(intl.ecmaSupport)
+      .compile(intl.messages);
+
+    cache = {...intl, messages}
+    return cache;
   }
 }
 
-export default intlSelector;
+export default createIntlSelector();
