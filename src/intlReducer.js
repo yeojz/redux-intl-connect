@@ -2,7 +2,7 @@ import {UPDATE_ACTION} from './constants';
 
 export const initialState = () => ({
     ecmaSupport: false,
-    locale: 'en',
+    locale: '',
     messages: {}
 });
 

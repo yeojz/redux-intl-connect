@@ -7,7 +7,6 @@ export default class MessageFormat {
     return this;
   }
   compile() {
-    console.log('called');
     return {
       test: () => 'test-message'
     }

@@ -18,7 +18,7 @@ FormatJS and it's corresponding bindings for React, Ember, Angular with Redux ar
  1. Location with slow internet speed and older browsers, meant the need for polyfills due to the absence of ECMAScript Internationalization API. This also means a relatively large dependency download which is not ideal.
  1. The main function in use was `formatMessage`.
 
-## Example
+## Example Usage:
 
  - [Project Website](https://yeojz.github.io/redux-intl-connect)
  - [Source](https://github.com/yeojz/redux-intl-connect/tree/master/src)
@@ -41,7 +41,7 @@ npm install ng-redux
 
 ## Usage
 
-In this example, I'm going to use `react` / `react-redux` and also assume the messages object in reducer has the following:
+In this example, I'm going to use `react` / `react-redux` and also assume the messages object in reducer has the following messages:
 
 ```json
 messages: {
@@ -114,9 +114,9 @@ ReactDOM.render(App, document.getElementById('container'));
 // <div>Hello World</div>
 ```
 
-### Provide `locale` and `messages` on load
+### Provide `locale` and `messages` upon loading the store
 
-You should provide a different `locale` and `messages` if your user is not using `en` locale.
+You should provide a default `locale` and `messages` when the store is initially loaded.
 
 ```js
 const initialState = {
@@ -132,7 +132,7 @@ const initialState = {
 const store = createStore(reducer, initialState);
 ```
 
-### Switching `locale` and `messages` on request
+### Switching `locale` and `messages` on demand
 
 You could switch `locale` on user's request by dispatching `updateIntl` action.
 
@@ -165,11 +165,13 @@ const getAndUpdateIntl = (locale) => (dispatch) => {
 }
 ```
 
-## Intl Support
+## ECMA Intl Support
 
 While it is not the goal of this project, as stated above (in `Why, Point 1`), the `messageformat` package which was introduced as the dependent library in v2, has optional support for browser ECMAScript Intl.
 
 As such, you can optionally turn on this support by dispatching or setting `ecmaSupport` value in the reducer to `true`. You'll need the corresponding polyfill if you want cross browser version support.
+
+For more information about the extended support, check out the [messageformat documentation](https://messageformat.github.io/guide/)
 
 ```js
 store.dispatch(updateIntl({ecmaSupport: true}));
@@ -185,7 +187,7 @@ store.dispatch(updateIntl({ecmaSupport: true}));
 
 ## Acknowledgement
 
-Highly influenced by the following libaries:
+Highly influenced by the following libraries:
 
 - [react-intl](https://github.com/yahoo/react-intl)
 - [react-intl-redux](https://github.com/ratson/react-intl-redux)
