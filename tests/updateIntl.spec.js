@@ -57,11 +57,12 @@ describe('updateIntl', function (){
 
   function getUpdatePayload() {
     return {
+        cacheDisable: false,
+        ecmaSupport: true,
         locale: 'it',
         messages: {
           a: "b"
-        },
-        pattern: /a-z/
+        }
     };
   }
 });

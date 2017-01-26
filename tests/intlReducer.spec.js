@@ -29,11 +29,12 @@ describe('intlReducer', function () {
 
   function getUpdatePayload() {
     return {
+      cacheDisable: false,
+      ecmaSupport: false,
       locale: 'it',
       messages: {
         a: 'b'
-      },
-      pattern: /a-z/
+      }
     };
   }
 });

@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import {stub} from 'sinon';
-import createMapStateToProps, {defaultSelector} from '../src/createMapStateToProps';
+import createMapStateToProps from '../src/createMapStateToProps';
 
 describe('createMapStateToProps', function () {
 
@@ -23,15 +23,12 @@ describe('createMapStateToProps', function () {
   it('calls createIntlObject with intl values', function () {
     const createIntlObject = stub();
     createMapStateToProps.__Rewire__('createIntlObject', createIntlObject);
+    createMapStateToProps.__Rewire__('intlSelector', () => 'test');
 
     createMapStateToProps()({intl: 'test'});
     expect(createIntlObject.calledWith('test')).to.be.true;
 
     createMapStateToProps.__ResetDependency__('createIntlObject');
+    createMapStateToProps.__ResetDependency__('intlSelector');
   });
-
-  it('returns intl key in state', function () {
-    const result = defaultSelector({intl: 'test'});
-    expect(result).to.equal('test');
-  })
 });

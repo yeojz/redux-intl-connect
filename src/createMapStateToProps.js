@@ -1,12 +1,9 @@
 import createIntlObject from './createIntlObject';
+import intlSelector from './intlSelector';
 
-export const defaultSelector = (state) => {
-  return state.intl;
-}
-
-export function createMapStateToProps(intlSelector = defaultSelector) {
+export function createMapStateToProps(selector = intlSelector) {
   return (state) => {
-    const intl = intlSelector(state);
+    const intl = selector(state);
 
     return {
       intl: createIntlObject(intl),

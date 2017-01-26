@@ -1,15 +1,24 @@
 import invariant from 'invariant';
 import get from 'lodash/get';
 import isEmpty from 'lodash/isEmpty';
-import template from 'lodash/template';
-import templateSettings from 'lodash/templateSettings';
+import isFunction from 'lodash/isFunction';
 
-import {LOG_PREFIX, VARIABLE_PATTERN} from './constants';
+import {LOG_PREFIX} from './constants';
 
 const ENV = process.env.NODE_ENV;
 
+function getMessage(message, values = {}) {
+  if (message && isFunction(message)) {
+    return message(values);
+  }
+  return void 0;
+}
+
 function formatMessage(state = {}) {
-  templateSettings.interpolate = state.pattern || VARIABLE_PATTERN;
+
+  if (!state.locale) {
+    return () => '';
+  }
 
   return (messageDescriptor = {}, values = {}) => {
 
@@ -21,7 +30,7 @@ function formatMessage(state = {}) {
     const message = get(state, ['messages', id], '');
 
     if (ENV === 'production' && isEmpty(values)) {
-      return message || defaultMessage || id;
+      return getMessage(message) || defaultMessage || id;
     }
 
     if (!message && !defaultMessage) {
@@ -29,7 +38,7 @@ function formatMessage(state = {}) {
       return id;
     }
 
-    return template(message || defaultMessage)(values);
+    return getMessage(message, values) || defaultMessage;
   };
 }
 
