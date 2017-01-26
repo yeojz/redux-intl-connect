@@ -18,10 +18,49 @@ FormatJS and it's corresponding bindings for React, Ember, Angular with Redux ar
  1. Location with slow internet speed and older browsers, meant the need for polyfills due to the absence of ECMAScript Internationalization API. This also means a relatively large dependency download which is not ideal.
  1. The main function in use was `formatMessage`.
 
-## Example Usage:
+## Links
 
- - [Project Website](https://yeojz.github.io/redux-intl-connect)
- - [Source](https://github.com/yeojz/redux-intl-connect/tree/master/src)
+ - [Demo Site](https://yeojz.github.io/redux-intl-connect)
+ - [Demo Source](https://github.com/yeojz/redux-intl-connect/tree/master/site)
+ - [Usage Guide](./docs/react.md)
+ - [Contributing Guide](./CONTRIBUTING.md)
+
+## Features
+
+### ICU MessageFormat
+
+For example:
+
+```js
+// Messages in the reducer:
+{
+    someKey: 'You {NUM_ADDS, plural, offset:1' +
+        '=0{did not add this}' +
+        '=1{added this}' +
+        'one{and one other person added this}' +
+        'other{and # others added this}' +
+      '}.',
+      
+    otherKey: '{GENDER, select, male{He} female{She} other{They}} liked this.'
+}
+
+// In your files:
+formatMessage({id: 'someKey'}, {NUM_ADDS: 2}); // "You and one other person added this."
+
+formatMessage({id: 'otherKey'}, {GENDER: 'male'}); // "He liked this."
+```
+
+### Optional ECMA Intl Support
+
+While it is not the goal of this project, as stated above (in `Why, Point 1`), the `messageformat` package which was introduced as the dependent library in v2, has optional support for browser ECMAScript Intl.
+
+As such, you can optionally turn on this support by dispatching or setting `ecmaSupport` value in the reducer to `true`. You'll need the corresponding polyfill if you want cross browser version support.
+
+For more information about the extended support, check out the [messageformat documentation](https://messageformat.github.io/guide/)
+
+```js
+store.dispatch(updateIntl({ecmaSupport: true}));
+```
 
 ## Installation
 
@@ -39,82 +78,9 @@ npm install preact-redux
 npm install ng-redux
 ```
 
-## Usage
+## Available Methods
 
-In this example, I'm going to use `react` / `react-redux` and also assume the messages object in reducer has the following messages:
-
-```json
-messages: {
-  "myMessageKey": "Hello {name}"
-}
-```
-
-**Component.js**
-
-```js
-import React, {PropTypes} from 'react';
-import {connect} from 'react-redux';
-import {connectIntl} from 'redux-intl-connect';
-
-// Initialize connector.
-// You can put this in another file and import that file instead
-// if you do not want to do do this all the time.
-// eg: import connect from '<folder-path>/connector'
-const connector = connectIntl(connect);
-
-const propTypes = {
-  intl: PropTypes.object
-}
-
-const Component = (props) => (
-  <div>
-    {props.intl.formatMessage({id: 'myMessageKey'}, {name: 'World'})}
-  </div>
-);
-
-Component.propTypes = propTypes;
-
-// Your standard redux stuff.
-const mapStateToProps = (state) => ({
-});
-const mapDispatchToProps = {
-}
-
-export default connector(mapStateToProps, mapDispatchToProps)(Component);
-```
-
-**App.js**
-
-```js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {createStore, combineReducers} from 'redux';
-import {Provider} from 'react-redux';
-import {intlReducer} from 'redux-intl-connect';
-
-import Component from './Component';
-import reducers from '<folder-path>/reducers';
-
-const reducer = combineReducers({
-  ...reducers,
-  intl: intlReducer,
-});
-
-const store = createStore(reducer);
-
-const App = () => (
-  <Provider store={store}>
-    <Component />
-  </Provider>
-);
-
-ReactDOM.render(App, document.getElementById('container'));
-
-// container element should contain:
-// <div>Hello World</div>
-```
-
-### Provide `locale` and `messages` upon loading the store
+### Provide `locale` and `messages` onload
 
 You should provide a default `locale` and `messages` when the store is initially loaded.
 
@@ -145,7 +111,7 @@ store.dispatch(updateIntl({
 }));
 ```
 
-*In a "real-world" scenario*, an action will be dispatched to fetch translations from a server before `updateIntl` is being called. An possible example with `redux-thunk` would be:
+*In a "real-world" scenario*, an action will be dispatched to fetch translations from a server before `updateIntl` is being called. A possible example with `redux-thunk` would be:
 
 ```js
 import {updateIntl} from 'redux-intl-connect';
@@ -164,22 +130,6 @@ const getAndUpdateIntl = (locale) => (dispatch) => {
     });
 }
 ```
-
-## ECMA Intl Support
-
-While it is not the goal of this project, as stated above (in `Why, Point 1`), the `messageformat` package which was introduced as the dependent library in v2, has optional support for browser ECMAScript Intl.
-
-As such, you can optionally turn on this support by dispatching or setting `ecmaSupport` value in the reducer to `true`. You'll need the corresponding polyfill if you want cross browser version support.
-
-For more information about the extended support, check out the [messageformat documentation](https://messageformat.github.io/guide/)
-
-```js
-store.dispatch(updateIntl({ecmaSupport: true}));
-```
-
-## Links
-
-- [Contributing Guide](./CONTRIBUTING.md)
 
 ## License
 
