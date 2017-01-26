@@ -39,6 +39,7 @@ describe('intlSelector', function () {
   function getState() {
     return {
       intl: {
+        cacheDisable: false,
         locale: 'en',
         messages: {
           test: 'let us test',
@@ -51,6 +52,7 @@ describe('intlSelector', function () {
   function getAlternateState() {
     return {
       intl: {
+        cacheDisable: false,
         locale: 'en',
         message: {
           alternate: 'give us alternatives'

@@ -1,9 +1,10 @@
 import {UPDATE_ACTION} from './constants';
 
 export const initialState = () => ({
-    ecmaSupport: false,
-    locale: '',
-    messages: {}
+  cacheDisable: false,
+  ecmaSupport: false,
+  locale: '',
+  messages: {}
 });
 
 export function intlReducer(state = initialState(), action = {}) {
