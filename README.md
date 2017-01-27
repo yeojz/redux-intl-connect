@@ -4,6 +4,7 @@
 [![Coverage Status][coveralls-badge]][coveralls-link]
 [![npm package][npm-badge]][npm-link]
 [![PRs Welcome][pr-welcome-badge]][pr-welcome-badge]
+[![Greenkeeper badge](https://badges.greenkeeper.io/yeojz/redux-intl-connect.svg)](https://greenkeeper.io/)
 
 ## About
 `redux-intl-connect` is a redux `connect` agnostic binding for internationalizing your application, with support for [ICU MessageFormat](http://userguide.icu-project.org/formatparse/messages).
