@@ -1,6 +1,6 @@
 import React from 'react';
-import Showcase from './Showcase';
 import Header from '../project/Header';
+import Hero from './section/Hero';
 import './App.css';
 
 const links = [
@@ -20,11 +20,8 @@ const App = () => (
   <div className='app'>
     <Header links={links}/>
 
-    <div className='app-content'>
-      <div className='sm-col-12 md-col-10 lg-col-8 mx-auto'>
-        <h2 className='tagline'>Internationalize your <strong className='word-highlight-black'>Redux</strong> web apps with familar APIs.</h2>
-        <Showcase />
-      </div>
+    <div className='app-content sm-col-10 md-col-8 mx-auto'>
+      <Hero />
     </div>
     <footer className='app-footer'>
       &copy; {year} Gerald Yeo. <a href='https://github.com/yeojz/redux-intl-connect/blob/master/LICENSE'>BSD-licensed</a>

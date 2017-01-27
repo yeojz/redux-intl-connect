@@ -20,8 +20,10 @@ const renderLinks = (links) => {
 
 const Header = (props) => (
   <div className='project-header'>
-    <Logo />
-    {renderLinks(props.links)}
+    <div className='sm-col-12 md-col-10 mx-auto'>
+      <Logo />
+      {renderLinks(props.links)}
+    </div>
   </div>
 )
 

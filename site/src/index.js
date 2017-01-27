@@ -5,6 +5,7 @@ import {createStore, combineReducers} from 'redux';
 import {intlReducer} from 'redux-intl-connect';
 import locale from './locale';
 import App from './custom/App';
+
 import 'basscss/css/basscss.css';
 import 'basscss-forms/index.css';
 import './index.css';
@@ -14,7 +15,7 @@ const reducer = combineReducers({
 });
 
 const initialState = {
-  intl: locale.en_US
+  intl: locale.ko_KR
 };
 
 const store = createStore(
