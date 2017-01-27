@@ -1,11 +1,10 @@
 # <img src="https://yeojz.github.io/redux-intl-connect/static/media/icon-with-text.0f6ad008.svg" alt="redux-intl-connect" height="60" />
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/yeojz/redux-intl-connect.svg)](https://greenkeeper.io/)
-
 [![Build Status][build-badge]][build-link]
 [![Coverage Status][coveralls-badge]][coveralls-link]
 [![npm package][npm-badge]][npm-link]
 [![PRs Welcome][pr-welcome-badge]][pr-welcome-badge]
+[![Greenkeeper badge](https://badges.greenkeeper.io/yeojz/redux-intl-connect.svg)](https://greenkeeper.io/)
 
 ## About
 `redux-intl-connect` is a redux `connect` agnostic binding for internationalizing your application, with support for [ICU MessageFormat](http://userguide.icu-project.org/formatparse/messages).
