@@ -1,26 +1,24 @@
+.app-logo {
+  margin-top: 3em;
+}
+.app-logo .logo {
+  display: inline-block;
+}
+.app-logo .logo img{
+  height: 4em;
+  margin-top: 0.5em;
+}
 .app-section {
   align-items: center;
   font-weight: 300;
-  padding-top: 5em;
+  padding-bottom: 2em;
+  padding-top: 2em;
   min-height: 60vh;
 }
 .app-section-sample {
   color: #7046b2;
 }
-.app-border {
+.app-sample-container {
+  background: #fff;
   border-color: #eee;
-}
-.app-footer {
-  box-sizing: border-box;
-  line-height: 2em;
-  padding: 0.5em 1em;
-  color: #666;
-  text-align: right;
-}
-.app-footer a {
-  color: rgb(112, 70, 178);
-  text-decoration: none;
-}
-.app-footer a:hover {
-  opacity: 0.8;
 }

@@ -8,6 +8,7 @@ import App from './custom/App';
 
 import 'basscss/css/basscss.css';
 import 'basscss-forms/index.css';
+import 'basscss-utility-headings/css/utility-headings.css';
 import './index.css';
 
 const reducer = combineReducers({

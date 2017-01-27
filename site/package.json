@@ -12,6 +12,9 @@
   "dependencies": {
     "basscss": "^8.0.3",
     "basscss-forms": "^1.0.0",
+    "basscss-utility-headings": "^0.1.0",
+    "i": "^0.3.5",
+    "npm": "^4.1.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",

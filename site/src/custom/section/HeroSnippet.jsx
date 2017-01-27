@@ -44,7 +44,7 @@ const HeroSnippet = (props) => {
   const locale = props.intl.locale;
 
   return (
-    <div className='app-section-sample section-hero-snippet border border-box app-border rounded p2'>
+    <div className='app-section-sample section-hero-snippet border border-box rounded p3 app-sample-container'>
       <span className='words'>Display</span>
       <span className='selector'>{displayLanguage(text)}</span>
       <span className='words'>in</span>
