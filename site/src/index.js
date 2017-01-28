@@ -8,6 +8,8 @@ import App from './custom/App';
 
 import 'basscss/css/basscss.css';
 import 'basscss-forms/index.css';
+import 'basscss-btn/css/btn.css';
+import 'basscss-btn-outline/css/btn-outline.css';
 import 'basscss-utility-headings/css/utility-headings.css';
 import './index.css';
 

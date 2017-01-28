@@ -1009,6 +1009,18 @@ basscss-border@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/basscss-border/-/basscss-border-4.0.2.tgz#14b4506329b90cb14abe5f4d3473e9fe9202df2e"
 
+basscss-btn-outline@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/basscss-btn-outline/-/basscss-btn-outline-1.1.0.tgz#b8444ea9d3d508cd00760a9d6fdff4baf5d42758"
+
+basscss-btn-primary@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/basscss-btn-primary/-/basscss-btn-primary-1.1.0.tgz#0c12492971e216e42bdf134411afc3802c3d8bf7"
+
+basscss-btn@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/basscss-btn/-/basscss-btn-1.1.1.tgz#c42157f201bd95db9a251568c542e740b2a3d7bf"
+
 basscss-flexbox@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/basscss-flexbox/-/basscss-flexbox-1.0.1.tgz#f64bc7607f97a7dfab74c1e011e1a77ad734f83a"

@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "basscss": "^8.0.3",
+    "basscss-btn": "^1.1.1",
+    "basscss-btn-outline": "^1.1.0",
+    "basscss-btn-primary": "^1.1.0",
     "basscss-forms": "^1.0.0",
     "basscss-utility-headings": "^0.1.0",
     "i": "^0.3.5",
