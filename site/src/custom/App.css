@@ -18,7 +18,38 @@
 .app-section-sample {
   color: #7046b2;
 }
-.app-sample-container {
+.app-snippet {
   background: #fff;
   border-color: #eee;
+}
+.app-code .ruleset {
+  color: #7046b2;
+  line-height: 1.5em;
+}
+.app-code .arg-condition {
+  padding-left: 1em;
+}
+.app-code .arg-message {
+  color: #333;
+}
+.code-plus,
+.code-equals,
+.code-results {
+  color: #7046b2;
+  display: block;
+  font-size: 1.2em;
+  font-weight: 300;
+  padding: 0.5em;
+  text-align: center;
+}
+.code-value .input {
+  box-sizing: border-box;
+  font-size: 1.2em;
+  font-weight: 300;
+  outline: none;
+  text-align: center;
+}
+.code-results {
+  color: #333;
+  border-bottom: 1px #ccc solid;
 }

@@ -4,7 +4,7 @@ import HeroSnippet from './HeroSnippet';
 import './Hero.css';
 
 const Hero = () => (
-  <div className='app-section section-hero'>
+  <div className='app-section section-hero pb4'>
     <div className='clearfix'>
       <div className='sm-col sm-col-12 px2'>
         <h2 className='tagline'><strong className='word-highlight-black'>Internationalize</strong> your Redux based web apps easily.</h2>
