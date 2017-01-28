@@ -10,8 +10,6 @@
 
 This library does not depend on the ECMAScript Internationalization API. It currently provides a single method: `formatMessage` with it's API inspired by the FormatJS library `formatMessage` method signature.
 
-It is NOT meant to have a 100% feature parity with the redux bindings for FormatJS. Extending to other translation methods will be considered if it fulfills point 1 under "Why" below.
-
 ## Motivation
 FormatJS and it's corresponding bindings for React, Ember, Angular with Redux are great. However, 2 use cases in other projects led to this:
 
