@@ -1,9 +1,9 @@
 import React, {PropTypes} from 'react';
 import {updateIntl} from 'redux-intl-connect';
-import connect from './connect';
-import locale from '../locale';
+import locale from '../../locale';
+import connect from '../connect';
 
-import './Showcase.css';
+import './HeroSnippet.css';
 
 const propTypes = {
   intl: PropTypes.object,
@@ -39,12 +39,12 @@ const selectLanguage = (value, updateIntl) => (
   </select>
 );
 
-const Showcase = (props) => {
+const HeroSnippet = (props) => {
   const text = props.intl.formatMessage({id: 'intro'}, {name: 'hello'});
   const locale = props.intl.locale;
 
   return (
-    <div className='showcase'>
+    <div className='app-section-sample section-hero-snippet border border-box rounded p3 app-snippet'>
       <span className='words'>Display</span>
       <span className='selector'>{displayLanguage(text)}</span>
       <span className='words'>in</span>
@@ -54,7 +54,7 @@ const Showcase = (props) => {
   );
 }
 
-Showcase.propTypes = propTypes;
+HeroSnippet.propTypes = propTypes;
 
 const mapStateToProps = () => ({});
 
@@ -62,4 +62,4 @@ const mapDispatchToProps = {
   updateIntl
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Showcase);
+export default connect(mapStateToProps, mapDispatchToProps)(HeroSnippet);

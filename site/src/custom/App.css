@@ -1,40 +1,55 @@
-.app-content {
-  background: #f9f9f9;
-  clear: both;
-  color: #333;
-  min-height: calc(100vh - 12em);
-  padding: 0;
-  margin: 0;
+.app-logo {
+  margin-top: 3em;
 }
-.app-content .tagline {
-  margin: 0;
-  display: block;
-  padding: 3em 5em 1em;
-  font-size: 1em;
+.app-logo .logo {
+  display: inline-block;
+}
+.app-logo .logo img{
+  height: 4em;
+  margin-top: 0.5em;
+}
+.app-section {
+  align-items: center;
   font-weight: 300;
+  padding-bottom: 2em;
+  padding-top: 2em;
+  min-height: 60vh;
+}
+.app-section-sample {
+  color: #7046b2;
+}
+.app-snippet {
+  background: #fff;
+  border-color: #eee;
+}
+.app-code .ruleset {
+  color: #7046b2;
+  line-height: 1.5em;
+}
+.app-code .arg-condition {
+  padding-left: 1em;
+}
+.app-code .arg-message {
+  color: #333;
+}
+.code-plus,
+.code-equals,
+.code-results {
+  color: #7046b2;
+  display: block;
+  font-size: 1.2em;
+  font-weight: 300;
+  padding: 0.5em;
   text-align: center;
 }
-.app-footer {
+.code-value .input {
   box-sizing: border-box;
-  line-height: 2em;
-  padding: 0.5em 1em;
-  color: #666;
-  text-align: right;
+  font-size: 1.2em;
+  font-weight: 300;
+  outline: none;
+  text-align: center;
 }
-.app-footer a {
-  color: rgb(112, 70, 178);
-  text-decoration: none;
-}
-.app-footer a:hover {
-  opacity: 0.8;
-}
-@media (min-width: 40em) {
-  .app-content {
-    min-height: calc(100vh - 8em);
-  }
-  .app-content .tagline {
-    font-size: 2em;
-    margin-bottom: 1em;
-    padding: 4em 0 1em;
-  }
+.code-results {
+  color: #333;
+  border-bottom: 1px #ccc solid;
 }

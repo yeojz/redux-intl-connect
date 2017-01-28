@@ -1,0 +1,11 @@
+.section-hero {
+  border-bottom: 1px #ddd solid;
+}
+.section-hero h2,
+.section-hero h3 {
+  font-weight: 300;
+}
+.section-hero .tagline {
+  font-size: 1.8em;
+  margin: 1em 0 3em;
+}

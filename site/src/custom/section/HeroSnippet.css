@@ -1,0 +1,19 @@
+
+.section-hero-snippet .input,
+.section-hero-snippet .select {
+  background: transparent;
+  border: 0;
+  color: #333;
+  font-weight: 300;
+  margin: 0;
+  outline: none;
+  padding: 0;
+}
+.section-hero-snippet .input {
+  padding: 0 0.5em;
+}
+.section-hero-snippet .selector {
+  border-bottom: 1px #ddd solid;
+  display: block;
+  margin: 0.5em 0;
+}

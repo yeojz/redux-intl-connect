@@ -1,34 +1,23 @@
 import React from 'react';
-import Showcase from './Showcase';
-import Header from '../project/Header';
+import Logo from '../project/Logo';
+import Hero from './section/Hero';
+import PluralFormat from './section/PluralFormat';
+import Footer from './section/Footer';
 import './App.css';
-
-const links = [
-  {
-    href: '//github.com/yeojz/redux-intl-connect',
-    text: 'github'
-  },
-  {
-    href: '//npmjs.com/package/redux-intl-connect',
-    text: 'npm'
-  }
-]
-
-const year = new Date().getUTCFullYear();
 
 const App = () => (
   <div className='app'>
-    <Header links={links}/>
-
-    <div className='app-content'>
-      <div className='sm-col-12 md-col-10 lg-col-8 mx-auto'>
-        <h2 className='tagline'>Internationalize your <strong className='word-highlight-black'>Redux</strong> web apps with familar APIs.</h2>
-        <Showcase />
+    <div className='app-logo sm-col-10 md-col-8 mx-auto'>
+      <Logo />
+    </div>
+    <div className='app-content sm-col-10 md-col-8 mx-auto'>
+      <Hero />
+      <div className='pt4'>
+        <h4 className='center'>Sample Messages</h4>
+        <PluralFormat />
       </div>
     </div>
-    <footer className='app-footer'>
-      &copy; {year} Gerald Yeo. <a href='https://github.com/yeojz/redux-intl-connect/blob/master/LICENSE'>BSD-licensed</a>
-    </footer>
+    <Footer />
   </div>
 );
 

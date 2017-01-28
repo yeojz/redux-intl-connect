@@ -6,13 +6,13 @@
 [![PRs Welcome][pr-welcome-badge]][pr-welcome-badge]
 
 ## About
-`redux-intl-connect` is a redux `connect` agnostic binding for internationalizing your application, with support for [ICU MessageFormat](http://userguide.icu-project.org/formatparse/messages).
+`redux-intl-connect` is a redux `connect` agnostic binding for internationalizing your application, with support for [ICU Message Syntax](http://userguide.icu-project.org/formatparse/messages).
 
 This library does not depend on the ECMAScript Internationalization API. It currently provides a single method: `formatMessage` with it's API inspired by the FormatJS library `formatMessage` method signature.
 
 It is NOT meant to have a 100% feature parity with the redux bindings for FormatJS. Extending to other translation methods will be considered if it fulfills point 1 under "Why" below.
 
-## Why
+## Motivation
 FormatJS and it's corresponding bindings for React, Ember, Angular with Redux are great. However, 2 use cases in other projects led to this:
 
  1. Location with slow internet speed and older browsers, meant the need for polyfills due to the absence of ECMAScript Internationalization API. This also means a relatively large dependency download which is not ideal.
@@ -27,7 +27,7 @@ FormatJS and it's corresponding bindings for React, Ember, Angular with Redux ar
 
 ## Features
 
-### ICU MessageFormat
+### ICU Message Syntax
 
 For example:
 
@@ -40,7 +40,7 @@ For example:
         'one{and one other person added this}' +
         'other{and # others added this}' +
       '}.',
-      
+
     otherKey: '{GENDER, select, male{He} female{She} other{They}} liked this.'
 }
 
@@ -52,7 +52,7 @@ formatMessage({id: 'otherKey'}, {GENDER: 'male'}); // "He liked this."
 
 ### Optional ECMA Intl Support
 
-While it is not the goal of this project, as stated above (in `Why, Point 1`), the `messageformat` package which was introduced as the dependent library in v2, has optional support for browser ECMAScript Intl.
+While it is not the goal of this project, as stated above (in `Motivation #1`), the `messageformat` package which was introduced as the dependent library in v2, has optional support for browser ECMAScript Intl.
 
 As such, you can optionally turn on this support by dispatching or setting `ecmaSupport` value in the reducer to `true`. You'll need the corresponding polyfill if you want cross browser version support.
 
@@ -142,7 +142,7 @@ Highly influenced by the following libraries:
 - [react-intl](https://github.com/yahoo/react-intl)
 - [react-intl-redux](https://github.com/ratson/react-intl-redux)
 
-ICU MessageFormat parsing is done via [messageformat](https://github.com/messageformat/messageformat.js) package.
+ICU Message Syntax parsing is done via [messageformat](https://github.com/messageformat/messageformat.js) package.
 
 [npm-badge]: https://img.shields.io/npm/v/redux-intl-connect.svg?style=flat-square
 [npm-link]: https://www.npmjs.com/package/redux-intl-connect

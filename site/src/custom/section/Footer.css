@@ -1,0 +1,13 @@
+.section-footer {
+  background: #333;
+  color: #fff;
+}
+.section-footer a {
+  color: #fff;
+  display: inline-block;
+  padding-bottom: 0.5em;
+  text-decoration: none;
+}
+.section-footer a:hover {
+  opacity: 0.8;
+}
