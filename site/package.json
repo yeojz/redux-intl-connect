@@ -22,13 +22,14 @@
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
-    "redux-intl-connect": "2"
+    "redux-intl-connect": "^2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && gh-pages -d build"
+    "filecopy": "cp circle.yml ./build/circle.yml",
+    "deploy": "npm run build && npm run filecopy && gh-pages -d build"
   }
 }
