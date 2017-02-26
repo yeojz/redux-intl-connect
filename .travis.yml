@@ -8,10 +8,13 @@ cache:
 before_script:
   - npm run clean
 script:
-  - npm run test && npm run coveralls
+  - npm run test
   - npm run lint
+after_script:
+  - npm run coveralls
 before_deploy:
-  - npm run build-library
+  - npm run clean
+  - npm run build
 deploy:
   - provider: npm
     email: $NPM_EMAIL

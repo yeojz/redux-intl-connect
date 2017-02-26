@@ -5,7 +5,6 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production babel src --out-dir lib",
-    "build-library": "npm run clean && npm run build",
     "deploy-gh-pages": "cd site && yarn run deploy",
     "clean": "rimraf lib coverage .nyc_output",
     "coverage": "cross-env NODE_ENV=test nyc report --reporter=lcov",
