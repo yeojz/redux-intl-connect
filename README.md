@@ -8,13 +8,13 @@
 ## About
 `redux-intl-connect` is a redux `connect` agnostic binding for internationalizing your application, with support for [ICU Message Syntax](http://userguide.icu-project.org/formatparse/messages).
 
-This library does not depend on the ECMAScript Internationalization API. It currently provides a single method: `formatMessage` with it's API inspired by the FormatJS library `formatMessage` method signature.
+This library **does not** depend on the [ECMAScript Internationalization API](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Intl). It provides a single method: `formatMessage` with it's API inspired by the FormatJS counterpart.
 
 ## Motivation
-FormatJS and it's corresponding bindings for React, Ember, Angular with Redux are great. However, 2 use cases in other projects led to this:
+FormatJS and it's corresponding bindings for React, Ember, Angular for Redux are great. However, 2 use cases in some of my projects led to this:
 
- 1. Location with slow internet speed and older browsers, meant the need for polyfills due to the absence of ECMAScript Internationalization API. This also means a relatively large dependency download which is not ideal.
- 1. The main function in use was `formatMessage`.
+ 1. Location with older browsers meant the need for polyfills due to the absence of ECMAScript Internationalization API. However, these places are also highly likely to have slower internet speeds. As such a relatively large dependency download which is not ideal.
+ 1. Only functionality provided by `formatMessage` is required.
 
 ## Links
 
@@ -52,7 +52,7 @@ formatMessage({id: 'otherKey'}, {GENDER: 'male'}); // "He liked this."
 
 While it is not the goal of this project, as stated above (in `Motivation #1`), the `messageformat` package which was introduced as the dependent library in v2, has optional support for browser ECMAScript Intl.
 
-As such, you can optionally turn on this support by dispatching or setting `ecmaSupport` value in the reducer to `true`. You'll need the corresponding polyfill if you want cross browser version support.
+As such, you can optionally turn on Intl API support by dispatching or setting `ecmaSupport` value in the reducer to `true`. You'll need the corresponding polyfill if you want cross browser version support.
 
 For more information about the extended support, check out the [messageformat documentation](https://messageformat.github.io/guide/)
 
@@ -75,6 +75,57 @@ npm install react-redux
 npm install preact-redux
 npm install ng-redux
 ```
+
+### Initialization
+
+Using `react-redux` as an example:
+
+```js
+// intlConnect.js
+
+import {connect} from 'react-redux';
+import {connectIntl} from 'redux-intl-connect';
+
+export default connectIntl(connect);
+
+```
+
+```js
+// intlInject.js
+
+import {connect} from 'react-redux';
+import {injectIntl} from 'redux-intl-connect';
+
+export default injectIntl(connect);
+
+```
+
+In your components
+
+```js
+// Example Component
+
+const Component = (props) => {
+	return <div>{props.intl.formatMessage({id: 'translation_id'})}</div>
+}
+```
+
+```js
+// Using intlConnect defined above
+
+import connect from './intlConnect';
+
+export default connect(mapStateToProps, mapDispatchToProps)(Component);
+```
+
+```js
+// Using intlInject defined above
+import connect from 'react-redux';
+import intlInject from './intlInject';
+
+export default connect(mapStateToProps, mapDispatchToProps)(intlInject(Component));
+```
+
 
 ## Available Methods
 
