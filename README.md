@@ -8,7 +8,7 @@
 ## About
 `redux-intl-connect` is a redux `connect` agnostic binding for internationalizing your application, with support for [ICU Message Syntax](http://userguide.icu-project.org/formatparse/messages).
 
-This library **does not** depend on the [ECMAScript Internationalization API](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Intl). It provides a single method: `formatMessage` with it's API inspired by the FormatJS counterpart.
+This library **does not** depend on polyfills and/or the [ECMAScript Internationalization API](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Intl). It provides a single method: `formatMessage` with it's API inspired by the FormatJS counterpart.
 
 ## Motivation
 FormatJS and it's corresponding bindings for React, Ember, Angular for Redux are great. However, 2 use cases in some of my projects led to this:
@@ -50,7 +50,7 @@ formatMessage({id: 'otherKey'}, {GENDER: 'male'}); // "He liked this."
 
 ### Optional ECMA Intl Support
 
-While it is not the goal of this project, as stated above (in `Motivation #1`), the `messageformat` package which was introduced as the dependent library in v2, has optional support for browser ECMAScript Intl.
+While it is not the goal of this project, as stated above (in `Motivation #1`), the `messageformat` package which was introduced as the dependent library in v2, has optional support for browser ECMAScript Intl or via it's polyfills.
 
 As such, you can optionally turn on Intl API support by dispatching or setting `ecmaSupport` value in the reducer to `true`. You'll need the corresponding polyfill if you want cross browser version support.
 
