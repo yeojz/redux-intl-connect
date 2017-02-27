@@ -7,11 +7,18 @@ import {LOG_PREFIX} from './constants';
 
 const ENV = process.env.NODE_ENV;
 
-function getMessage(message, values = {}) {
+function parseMessage(message, values = {}) {
   if (message && isFunction(message)) {
     return message(values);
   }
   return void 0;
+}
+
+function getMessage(state, id) {
+  if (isFunction(state.get)) {
+    return state.get(['messages', 'id']) || '';
+  }
+  return get(state, ['messages', id], '');
 }
 
 function formatMessage(state = {}) {
@@ -27,10 +34,10 @@ function formatMessage(state = {}) {
       defaultMessage,
     } = messageDescriptor;
 
-    const message = get(state, ['messages', id], '');
+    const message = getMessage(state, id);
 
     if (ENV === 'production' && isEmpty(values)) {
-      return getMessage(message) || defaultMessage || id;
+      return parseMessage(message) || defaultMessage || id;
     }
 
     if (!message && !defaultMessage) {
@@ -38,7 +45,7 @@ function formatMessage(state = {}) {
       return id;
     }
 
-    return getMessage(message, values) || defaultMessage;
+    return parseMessage(message, values) || defaultMessage;
   };
 }
 
