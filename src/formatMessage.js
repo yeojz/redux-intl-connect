@@ -1,13 +1,14 @@
 import invariant from 'invariant';
-import get from 'lodash/get';
 import isEmpty from 'lodash/isEmpty';
 import isFunction from 'lodash/isFunction';
 
+import getMessage from './utils/getMessage';
+import getValue from './utils/getValue';
 import {LOG_PREFIX} from './constants';
 
 const ENV = process.env.NODE_ENV;
 
-function getMessage(message, values = {}) {
+const parseMessage = (message, values = {}) => {
   if (message && isFunction(message)) {
     return message(values);
   }
@@ -15,8 +16,9 @@ function getMessage(message, values = {}) {
 }
 
 function formatMessage(state = {}) {
+  const locale = getValue(state, 'locale');
 
-  if (!state.locale) {
+  if (!locale) {
     return () => '';
   }
 
@@ -27,18 +29,18 @@ function formatMessage(state = {}) {
       defaultMessage,
     } = messageDescriptor;
 
-    const message = get(state, ['messages', id], '');
+    const message = getMessage(state, id);
 
     if (ENV === 'production' && isEmpty(values)) {
-      return getMessage(message) || defaultMessage || id;
+      return parseMessage(message) || defaultMessage || id;
     }
 
     if (!message && !defaultMessage) {
-      invariant(message, `${LOG_PREFIX} Missing message/defaultMessage: "${id}" for locale: "${state.locale}"`);
+      invariant(message, `${LOG_PREFIX} Missing message/defaultMessage: "${id}" for locale: "${locale}"`);
       return id;
     }
 
-    return getMessage(message, values) || defaultMessage;
+    return parseMessage(message, values) || defaultMessage;
   };
 }
 

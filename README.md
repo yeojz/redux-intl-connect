@@ -6,7 +6,7 @@
 [![PRs Welcome][pr-welcome-badge]][pr-welcome-badge]
 
 ## About
-`redux-intl-connect` is a redux `connect` agnostic binding for internationalizing your application, with support for [ICU Message Syntax](http://userguide.icu-project.org/formatparse/messages).
+`redux-intl-connect` is a redux `connect` agnostic binding for internationalizing your application, with support for [ICU MessageFormat](http://userguide.icu-project.org/formatparse/messages).
 
 This library **does not** depend on polyfills and/or the [ECMAScript Internationalization API](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Intl). It provides a single method: `formatMessage` with it's API inspired by the FormatJS counterpart.
 
@@ -25,7 +25,7 @@ FormatJS and it's corresponding bindings for React, Ember, Angular for Redux are
 
 ## Features
 
-### ICU Message Syntax
+### MessageFormat Syntax
 
 For example:
 
@@ -183,6 +183,10 @@ const getAndUpdateIntl = (locale) => (dispatch) => {
 ## License
 
 `redux-intl-connect` is [BSD licensed](./LICENSE)
+
+## See also
+
+ - [redux-intl-react](https://github.com/yeojz/redux-intl-react)
 
 ## Acknowledgement
 

@@ -1,5 +1,6 @@
 import MessageFormat from 'messageformat';
 import isEmpty from 'lodash/isEmpty';
+import isImmutable from './utils/isImmutable';
 
 const isIntlValid = (intl) => (
   !isEmpty(intl) && intl.locale
@@ -16,11 +17,17 @@ const compileMessages = (intl) => (
     .compile(intl.messages)
 );
 
+const getIntl = (state) => (
+  isImmutable(state.intl)
+    ? state.intl.toJS()
+    : state.intl
+);
+
 export function createIntlSelector() {
   let cache = {};
 
   return (state = {}) => {
-    const {intl} = state;
+    const intl = getIntl(state);
 
     if (!isIntlValid(intl)) {
       cache = {}
