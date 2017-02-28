@@ -1,5 +1,6 @@
 import {expect} from 'chai';
 import {stub} from 'sinon';
+import {fromJS} from 'immutable'
 import MessageFormat from 'messageformat';
 import formatMessage from '../src/formatMessage';
 
@@ -112,6 +113,15 @@ describe('formatMessage', function () {
     expect(result).to.equal('test-nothing');
     expect(invariant.called).to.be.true;
     formatMessage.__ResetDependency__('invariant');
+  });
+
+  it('returns message from id even with immutable data source', function () {
+    const state = fromJS(getState());
+    const result = formatMessage(state)({
+      id: 'test'
+    });
+
+    expect(result).to.equal('let us test');
   });
 
   function getState() {

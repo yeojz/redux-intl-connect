@@ -7,6 +7,18 @@ import {LOG_PREFIX} from './constants';
 
 const ENV = process.env.NODE_ENV;
 
+function isImmutable(state) {
+  return isFunction(state.get)
+    && isFunction(state.getIn);
+}
+
+function getLocale(state) {
+  if (isImmutable(state)) {
+    return state.get('locale');
+  }
+  return state.locale;
+}
+
 function parseMessage(message, values = {}) {
   if (message && isFunction(message)) {
     return message(values);
@@ -15,15 +27,16 @@ function parseMessage(message, values = {}) {
 }
 
 function getMessage(state, id) {
-  if (isFunction(state.get)) {
-    return state.get(['messages', 'id']) || '';
+  if (isImmutable(state)) {
+    return state.getIn(['messages', id], '');
   }
   return get(state, ['messages', id], '');
 }
 
 function formatMessage(state = {}) {
+  const locale = getLocale(state);
 
-  if (!state.locale) {
+  if (!locale) {
     return () => '';
   }
 
@@ -41,7 +54,7 @@ function formatMessage(state = {}) {
     }
 
     if (!message && !defaultMessage) {
-      invariant(message, `${LOG_PREFIX} Missing message/defaultMessage: "${id}" for locale: "${state.locale}"`);
+      invariant(message, `${LOG_PREFIX} Missing message/defaultMessage: "${id}" for locale: "${locale}"`);
       return id;
     }
 
