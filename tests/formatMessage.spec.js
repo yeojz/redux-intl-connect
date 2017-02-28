@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import {stub} from 'sinon';
-import {fromJS} from 'immutable'
+import {fromJS} from 'immutable';
 import MessageFormat from 'messageformat';
 import formatMessage from '../src/formatMessage';
 
