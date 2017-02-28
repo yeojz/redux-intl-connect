@@ -1,40 +1,22 @@
 import invariant from 'invariant';
-import get from 'lodash/get';
 import isEmpty from 'lodash/isEmpty';
 import isFunction from 'lodash/isFunction';
 
+import getMessage from './utils/getMessage';
+import getValue from './utils/getValue';
 import {LOG_PREFIX} from './constants';
 
 const ENV = process.env.NODE_ENV;
 
-function isImmutable(state) {
-  return isFunction(state.get)
-    && isFunction(state.getIn);
-}
-
-function getLocale(state) {
-  if (isImmutable(state)) {
-    return state.get('locale');
-  }
-  return state.locale;
-}
-
-function parseMessage(message, values = {}) {
+const parseMessage = (message, values = {}) => {
   if (message && isFunction(message)) {
     return message(values);
   }
   return void 0;
 }
 
-function getMessage(state, id) {
-  if (isImmutable(state)) {
-    return state.getIn(['messages', id], '');
-  }
-  return get(state, ['messages', id], '');
-}
-
 function formatMessage(state = {}) {
-  const locale = getLocale(state);
+  const locale = getValue(state, 'locale');
 
   if (!locale) {
     return () => '';

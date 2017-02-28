@@ -1,6 +1,11 @@
+import getValue from './utils/getValue';
 import formatMessage from './formatMessage';
 
-export default (intl) => ({
+function createIntlObject(intl) {
+  return {
     formatMessage: formatMessage(intl),
-    locale: intl.locale
-});
+    locale: getValue(intl, 'locale')
+  }
+}
+
+export default createIntlObject;

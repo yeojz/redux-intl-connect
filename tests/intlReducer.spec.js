@@ -1,4 +1,5 @@
 import {expect} from 'chai';
+import {fromJS} from 'immutable';
 import {UPDATE_ACTION} from '../src/constants';
 import intlReducer, {initialState} from '../src/intlReducer';
 
@@ -25,6 +26,16 @@ describe('intlReducer', function () {
     const expected = getUpdatePayload()
     const result = intlReducer(void 0, action);
     expect(result).to.deep.eql(expected);
+  });
+
+  it('updates state even if immutable', function () {
+    const action = {
+      type: UPDATE_ACTION,
+      payload: getUpdatePayload()
+    }
+    const expected = fromJS(getUpdatePayload());
+    const result = intlReducer(fromJS(initialState()), action);
+    expect(result.toJS()).to.deep.equal(expected.toJS());
   });
 
   function getUpdatePayload() {
