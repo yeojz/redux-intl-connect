@@ -68,7 +68,7 @@ describe('createFormatMessage', function () {
   });
 
 
-  it('returns message directly (ENV:production, values empty)', function () {
+  it('[production] returns message from id', function () {
     const values = rewireEnv();
     const state = getState();
     const result = createFormatMessage(state)({
@@ -79,7 +79,7 @@ describe('createFormatMessage', function () {
     resetEnv();
   });
 
-  it('returns defaultMessage directly (ENV:production, values empty)', function () {
+  it('[production] returns defaultMessage directly when missing id', function () {
     const values = rewireEnv();
     const state = getState();
     const result = createFormatMessage(state)({
@@ -91,7 +91,7 @@ describe('createFormatMessage', function () {
     resetEnv();
   });
 
-  it('returns id directly (ENV:production, values empty)', function () {
+  it('[production] returns id directly when missing id and no default message', function () {
     const values = rewireEnv();
     const state = getState();
     const result = createFormatMessage(state)({
@@ -105,13 +105,16 @@ describe('createFormatMessage', function () {
   it('returns id when invariant is disabled with no message/defaultMessage', function () {
     const state = getState();
     const invariant = stub();
+
     createFormatMessage.__Rewire__('invariant', invariant);
 
     const result = createFormatMessage(state)({
       id: 'test-nothing',
     });
+
     expect(result).to.equal('test-nothing');
     expect(invariant.called).to.be.true;
+
     createFormatMessage.__ResetDependency__('invariant');
   });
 
@@ -137,23 +140,19 @@ describe('createFormatMessage', function () {
   function rewireEnv() {
     const values = {
       invariant: stub(),
-      template: stub()
     }
     createFormatMessage.__Rewire__('ENV', 'production');
     createFormatMessage.__Rewire__('invariant', values.invariant);
-    createFormatMessage.__Rewire__('template', values.template);
     return values;
   }
 
   function resetEnv() {
     createFormatMessage.__ResetDependency__('ENV');
     createFormatMessage.__ResetDependency__('invariant');
-    createFormatMessage.__ResetDependency__('template');
   }
 
   function testResult(result, values, str) {
     expect(result).to.equal(str);
     expect(values.invariant.called).to.be.false;
-    expect(values.template.called).to.be.false;
   }
 });

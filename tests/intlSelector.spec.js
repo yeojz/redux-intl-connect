@@ -31,7 +31,7 @@ describe('intlSelector', function () {
     expect(result).to.be.empty;
   });
 
-  it('returns cache when cache intl and reducer intl is the same.', function () {
+  it('returns cache when cache locale and reducer locale is the same.', function () {
     const intlSelector = createIntlSelector();
 
     const round1 = intlSelector(getState());
@@ -43,7 +43,21 @@ describe('intlSelector', function () {
     expect(round2.messages.alternate).to.be.undefined;
   });
 
-  it('returns empty object when unable to locale intl even when state is immutable', function () {
+  it('[immutable] calls MessageFormat with proper variables', function () {
+    defaultIntlSelector.__Rewire__('MessageFormat', mockMessageFormat);
+
+    const intlSelector = createIntlSelector();
+    const state = getState();
+    const result = intlSelector(fromJS(state));
+
+    expect(result.locale).to.equal(state.locale);
+    expect(result.messages.test).to.be.a.function;
+    expect(result.messages.test()).to.equal('test-message');
+
+    defaultIntlSelector.__ResetDependency__('MessageFormat');
+  });
+
+  it('[immutable] returns empty object when unable to locale intl', function () {
     const intlSelector = createIntlSelector();
     const result = intlSelector({
       intl: fromJS({})
@@ -51,7 +65,7 @@ describe('intlSelector', function () {
     expect(result).to.be.empty;
   });
 
-  it('returns cache when cache intl and reducer intl is the same even when state is immutable.', function () {
+  it('[immutable] returns cache when cache locale and reducer locale is the same', function () {
     const intlSelector = createIntlSelector();
 
     let state1 = getState();
