@@ -15,21 +15,20 @@ const parseMessage = (message, values = {}) => {
   return void 0;
 }
 
-function formatMessage(state = {}) {
-  const locale = getValue(state, 'locale');
+function createFormatMessage(intl = {}) {
+  const locale = getValue(intl, 'locale');
 
   if (!locale) {
     return () => '';
   }
 
-  return (messageDescriptor = {}, values = {}) => {
-
+  function formatMessage(messageDescriptor = {}, values = {}) {
     const {
       id,
       defaultMessage,
     } = messageDescriptor;
 
-    const message = getMessage(state, id);
+    const message = getMessage(intl, id);
 
     if (ENV === 'production' && isEmpty(values)) {
       return parseMessage(message) || defaultMessage || id;
@@ -41,7 +40,9 @@ function formatMessage(state = {}) {
     }
 
     return parseMessage(message, values) || defaultMessage;
-  };
+  }
+
+  return formatMessage;
 }
 
-export default formatMessage;
+export default createFormatMessage;
