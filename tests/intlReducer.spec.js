@@ -28,7 +28,7 @@ describe('intlReducer', function () {
     expect(result).to.deep.eql(expected);
   });
 
-  it('updates state even if immutable', function () {
+  it('[immutable] updates state', function () {
     const action = {
       type: UPDATE_ACTION,
       payload: getUpdatePayload()

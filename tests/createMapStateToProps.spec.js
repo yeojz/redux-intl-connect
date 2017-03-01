@@ -13,7 +13,7 @@ describe('createMapStateToProps', function () {
     const selector = stub().returns({
       locale: 'it'
     });
-    const result = createMapStateToProps(selector)('object');
+    const result = createMapStateToProps(selector)({intl: 'object'});
 
     expect(selector.calledWith('object')).to.be.true;
     expect(result.intl).to.be.an.object;

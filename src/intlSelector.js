@@ -17,17 +17,15 @@ const compileMessages = (intl) => (
     .compile(intl.messages)
 );
 
-const getIntl = (state) => (
-  isImmutable(state.intl)
-    ? state.intl.toJS()
-    : state.intl
+const formatIntl = (intl) => (
+  isImmutable(intl) ? intl.toJS() : intl
 );
 
 export function createIntlSelector() {
   let cache = {};
 
-  return (state = {}) => {
-    const intl = getIntl(state);
+  return (intlObject = {}) => {
+    const intl = formatIntl(intlObject);
 
     if (!isIntlValid(intl)) {
       cache = {}

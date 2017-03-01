@@ -1,9 +1,9 @@
 import getValue from './utils/getValue';
-import formatMessage from './formatMessage';
+import createFormatMessage from './createFormatMessage';
 
 function createIntlObject(intl) {
   return {
-    formatMessage: formatMessage(intl),
+    formatMessage: createFormatMessage(intl),
     locale: getValue(intl, 'locale')
   }
 }
