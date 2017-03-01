@@ -1,6 +1,6 @@
 {
   "name": "redux-intl-connect",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "i18n for redux - connect agnostic bindings with support for ICU Message Syntax",
   "main": "lib/index.js",
   "scripts": {
