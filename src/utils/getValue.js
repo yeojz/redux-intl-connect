@@ -1,11 +1,11 @@
 import get from 'lodash/get';
 import isImmutable from './isImmutable';
 
-function getValue(state, value) {
-  if (isImmutable(state)) {
-    return state.get(value);
+function getValue(intl, value) {
+  if (isImmutable(intl)) {
+    return intl.get(value);
   }
-  return get(state, value);
+  return get(intl, value);
 }
 
 export default getValue;
