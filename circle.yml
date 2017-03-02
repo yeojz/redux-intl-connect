@@ -13,7 +13,7 @@ test:
     - npm run lint
 deployment:
   coverage:
-    branch: [master, /^project\/*$/, /^hotfix\/*$/, /^feature\/*$/]
+    branch: [master, /^hotfix\/.*$/, /^feature\/.*$/]
     commands:
       - npm run coveralls
   release:
