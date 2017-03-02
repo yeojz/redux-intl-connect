@@ -1,11 +1,11 @@
 import get from 'lodash/get';
 import isImmutable from './isImmutable';
 
-function getMessage(state, id) {
-  if (isImmutable(state)) {
-    return state.getIn(['messages', id], '');
+function getMessage(intl, id) {
+  if (isImmutable(intl)) {
+    return intl.getIn(['messages', id], '');
   }
-  return get(state, ['messages', id], '');
+  return get(intl, ['messages', id], '');
 }
 
 export default getMessage;
