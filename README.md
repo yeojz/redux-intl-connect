@@ -3,7 +3,7 @@
 [![Build Status][build-badge]][build-link]
 [![Coverage Status][coveralls-badge]][coveralls-link]
 [![npm package][npm-badge]][npm-link]
-[![PRs Welcome][pr-welcome-badge]][pr-welcome-badge]
+[![PRs Welcome][pr-welcome-badge]][pr-welcome-link]
 
 ## About
 `redux-intl-connect` is a redux `connect` agnostic binding for internationalizing your application, with support for [ICU MessageFormat](http://userguide.icu-project.org/formatparse/messages).
@@ -13,15 +13,15 @@ This library **does not** depend on polyfills and/or the [ECMAScript Internation
 ## Motivation
 FormatJS and it's corresponding bindings for React, Ember, Angular for Redux are great. However, 2 use cases in some of my projects led to this:
 
- 1. Location with older browsers meant the need for polyfills due to the absence of ECMAScript Internationalization API. However, these places are also highly likely to have slower internet speeds. As such a relatively large dependency download which is not ideal.
- 1. Only functionality provided by `formatMessage` is required.
+1.  Location with older browsers meant the need for polyfills due to the absence of ECMAScript Internationalization API. However, these places are also highly likely to have slower internet speeds. As such a relatively large dependency download which is not ideal.
+1.  Only functionality provided by `formatMessage` is required.
 
 ## Links
 
- - [Demo Site](https://yeojz.github.io/redux-intl-connect)
- - [Demo Source](https://github.com/yeojz/redux-intl-connect/tree/master/site)
- - [Usage Guide](./docs/react.md)
- - [Contributing Guide](./CONTRIBUTING.md)
+-   [Demo Site](https://yeojz.github.io/redux-intl-connect)
+-   [Demo Source](https://github.com/yeojz/redux-intl-connect/tree/master/site)
+-   [Usage Guide](./docs/react.md)
+-   [Contributing Guide](./CONTRIBUTING.md)
 
 ## Features
 
@@ -186,21 +186,21 @@ const getAndUpdateIntl = (locale) => (dispatch) => {
 
 ## See also
 
- - [redux-intl-react](https://github.com/yeojz/redux-intl-react)
+-   [redux-intl-react](https://github.com/yeojz/redux-intl-react)
 
 ## Acknowledgement
 
 Highly influenced by the following libraries:
 
-- [react-intl](https://github.com/yahoo/react-intl)
-- [react-intl-redux](https://github.com/ratson/react-intl-redux)
+-   [react-intl](https://github.com/yahoo/react-intl)
+-   [react-intl-redux](https://github.com/ratson/react-intl-redux)
 
 ICU Message Syntax parsing is done via [messageformat](https://github.com/messageformat/messageformat.js) package.
 
 [npm-badge]: https://img.shields.io/npm/v/redux-intl-connect.svg?style=flat-square
 [npm-link]: https://www.npmjs.com/package/redux-intl-connect
 
-[build-badge]: https://img.shields.io/travis/yeojz/redux-intl-connect.svg?style=flat-square
+[build-badge]: https://img.shields.io/travis/yeojz/redux-intl-connect/master.svg?style=flat-square
 [build-link]: https://travis-ci.org/yeojz/redux-intl-connect
 
 [coveralls-badge]: https://img.shields.io/coveralls/yeojz/redux-intl-connect.svg?style=flat-square
