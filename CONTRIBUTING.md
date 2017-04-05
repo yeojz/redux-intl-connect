@@ -1,6 +1,6 @@
 # Contributing
 
-[![PRs Welcome][pr-welcome-badge]][pr-welcome-badge]
+[![PRs Welcome][pr-welcome-badge]][pr-welcome-link]
 
 Thank you for opening (and reading) this document. :)
 We are open to, and grateful for, any contributions made.
