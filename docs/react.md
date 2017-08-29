@@ -74,4 +74,3 @@ ReactDOM.render(App, document.getElementById('container'));
 // container element should contain:
 // <div>Hello World</div>
 ```
-

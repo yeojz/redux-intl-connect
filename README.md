@@ -1,27 +1,64 @@
 # <img src="https://yeojz.github.io/redux-intl-connect/static/media/icon-with-text.0f6ad008.svg" alt="redux-intl-connect" height="60" />
 
+> Redux connect-agnostic library providing i18n and ICU Message Syntax support (Ember, Preact, React etc)
+
 [![Build Status][build-badge]][build-link]
 [![Coverage Status][coveralls-badge]][coveralls-link]
 [![npm package][npm-badge]][npm-link]
 [![PRs Welcome][pr-welcome-badge]][pr-welcome-link]
 
+- [About](#about)
+- [Motivation](#motivation)
+- [Demo](#demo)
+- [Installation](#installation)
+- [Usage Guides](#usage-guides)
+- [Features](#features)
+  - [MessageFormat Syntax](#messageformat-syntax)
+  - [Optional ECMA Intl Support](#optional-ecma-intl-support)
+- [Available Methods](#available-methods)
+  - [Provide `locale` and `messages` onload](#provide-`locale`-and-`messages`-onload)
+  - [Switching `locale` and `messages` on demand](#switching-`locale`-and-`messages`-on-demand)
+- [License](#license)
+- [See also](#see-also)
+- [Acknowledgement](#acknowledgement)
+
 ## About
-`redux-intl-connect` is a redux `connect` agnostic binding for internationalizing your application, with support for [ICU MessageFormat](http://userguide.icu-project.org/formatparse/messages).
+
+`redux-intl-connect` is a `connect` agnostic binding for internationalizing your application, with support for [ICU MessageFormat](http://userguide.icu-project.org/formatparse/messages).
+
+As the library contains mainly higher-order functions, it is not restricted to just the commonly used `react-redux`. It easily used together with `ember-redux`, `preact-redux` and other redux bindings that provide the same `connect` interface.
+
+## Motivation
 
 This library **does not** depend on polyfills and/or the [ECMAScript Internationalization API](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Intl). It provides a single method: `formatMessage` with it's API inspired by the FormatJS counterpart.
 
-## Motivation
-FormatJS and it's corresponding bindings for React, Ember, Angular for Redux are great. However, 2 use cases in some of my projects led to this:
+FormatJS and it's corresponding bindings for the different frameworks are great, but 2 use cases in some of my projects led to this:
 
 1.  Location with older browsers meant the need for polyfills due to the absence of ECMAScript Internationalization API. However, these places are also highly likely to have slower internet speeds. As such a relatively large dependency download which is not ideal.
 1.  Only functionality provided by `formatMessage` is required.
 
-## Links
+## Demo
 
 -   [Demo Site](https://yeojz.github.io/redux-intl-connect)
 -   [Demo Source](https://github.com/yeojz/redux-intl-connect/tree/master/site)
--   [Usage Guide](./docs/react.md)
--   [Contributing Guide](./CONTRIBUTING.md)
+
+## Installation
+
+```
+> npm install redux-intl-connect redux --save
+```
+
+Install a corresponding redux connect library. Examples:
+
+```
+> npm install react-redux
+> npm install preact-redux
+> npm install ember-redux
+```
+
+## Usage Guides
+
+-   [React Usage Guide](./docs/react.md)
 
 ## Features
 
@@ -60,73 +97,6 @@ For more information about the extended support, check out the [messageformat do
 store.dispatch(updateIntl({ecmaSupport: true}));
 ```
 
-## Installation
-
-Install the library:
-
-```
-npm install redux-intl-connect redux --save
-```
-
-Install a corresponding redux connect library. Examples:
-
-```
-npm install react-redux
-npm install preact-redux
-npm install ng-redux
-```
-
-### Initialization
-
-Using `react-redux` as an example:
-
-```js
-// intlConnect.js
-
-import {connect} from 'react-redux';
-import {connectIntl} from 'redux-intl-connect';
-
-export default connectIntl(connect);
-
-```
-
-```js
-// intlInject.js
-
-import {connect} from 'react-redux';
-import {injectIntl} from 'redux-intl-connect';
-
-export default injectIntl(connect);
-
-```
-
-In your components
-
-```js
-// Example Component
-
-const Component = (props) => {
-	return <div>{props.intl.formatMessage({id: 'translation_id'})}</div>
-}
-```
-
-```js
-// Using intlConnect defined above
-
-import connect from './intlConnect';
-
-export default connect(mapStateToProps, mapDispatchToProps)(Component);
-```
-
-```js
-// Using intlInject defined above
-import connect from 'react-redux';
-import intlInject from './intlInject';
-
-export default connect(mapStateToProps, mapDispatchToProps)(intlInject(Component));
-```
-
-
 ## Available Methods
 
 ### Provide `locale` and `messages` onload
@@ -152,7 +122,7 @@ const store = createStore(reducer, initialState);
 You could switch `locale` on user's request by dispatching `updateIntl` action.
 
 ```js
-import {updateIntl} from 'redux-intl-connect';
+import { updateIntl } from 'redux-intl-connect';
 
 store.dispatch(updateIntl({
   locale,
@@ -163,14 +133,12 @@ store.dispatch(updateIntl({
 *In a "real-world" scenario*, an action will be dispatched to fetch translations from a server before `updateIntl` is being called. A possible example with `redux-thunk` would be:
 
 ```js
-import {updateIntl} from 'redux-intl-connect';
+import { updateIntl } from 'redux-intl-connect';
 
+// The redux action
 const getAndUpdateIntl = (locale) => (dispatch) => {
-
   fetch('url-to-messages')
-    .then(function(response) {
-       return response.text()
-     })
+    .then((response) => response.text())
     .then((body) => {
         dispatch(updateIntl({
           locale,
@@ -178,6 +146,9 @@ const getAndUpdateIntl = (locale) => (dispatch) => {
         }))
     });
 }
+
+// Somewhere in the app
+getAndUpdateIntl('en_us');
 ```
 
 ## License

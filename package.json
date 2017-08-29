@@ -1,7 +1,7 @@
 {
   "name": "redux-intl-connect",
   "version": "2.3.1",
-  "description": "i18n for redux - connect agnostic bindings with support for ICU Message Syntax",
+  "description": "Redux connect-agnostic library providing i18n and ICU Message Syntax support (Ember, Preact, React etc)",
   "main": "lib/index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production babel src --out-dir lib",
@@ -54,10 +54,12 @@
     "cross-env": "^4.0.0",
     "eslint": "^3.13.1",
     "immutable": "^3.8.1",
+    "jest": "^20.0.4",
     "mocha": "^3.2.0",
     "nyc": "^10.1.2",
     "redux": "^3.6.0",
     "rimraf": "^2.6.0",
+    "rollup": "^0.49.2",
     "sinon": "^2.0.0"
   },
   "dependencies": {
