@@ -3,13 +3,12 @@
     "es2015"
   ],
   "plugins": [
-    "transform-export-extensions",
+    "transform-object-assign",
     "transform-object-rest-spread",
-    "dev-expression"
+    ["module-resolver", {
+      "root": ["./packages"]
+    }]
   ],
   "env": {
-     "test": {
-       "plugins": ["rewire"]
-     }
-   }
+  }
 }

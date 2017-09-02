@@ -1,0 +1,32 @@
+{
+  "name": "redux-intl-connect-ember",
+  "version": "1.4.0",
+  "description": "Ember bindings for localization with ICU MessageFormat using redux-intl-connect",
+  "main": "dist/index.js",
+  "scripts": {
+  },
+  "repository": "https://github.com/yeojz/redux-intl-connect/tree/master/packages/redux-intl-connect-ember",
+  "keywords": [
+    "ember",
+    "redux",
+    "i18n",
+    "formatmessage",
+    "internationalization",
+    "localization",
+    "intl",
+    "redux-intl-connect"
+  ],
+  "author": "Gerald Yeo <contact@fusedthought.com>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/yeojz/redux-intl-react/issues"
+  },
+  "homepage": "https://github.com/yeojz/redux-intl-react#readme",
+  "devDependencies": {
+  },
+  "peerDependencies": {
+  },
+  "dependencies": {
+    "redux-intl-connect": "^2.3.1"
+  }
+}

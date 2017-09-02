@@ -2,17 +2,13 @@
   "name": "redux-intl-connect",
   "version": "2.3.1",
   "description": "Redux connect-agnostic library providing i18n and ICU Message Syntax support (Ember, Preact, React etc)",
-  "main": "lib/index.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production babel src --out-dir lib",
-    "deploy-gh-pages": "cd site && yarn run deploy",
-    "clean": "rimraf lib coverage .nyc_output",
-    "coverage": "cross-env NODE_ENV=test nyc report --reporter=lcov",
-    "coveralls": "cross-env NODE_ENV=test nyc report --reporter=text-lcov | coveralls",
-    "lint": "eslint --ext js src tests",
-    "test": "cross-env NODE_ENV=test npm run test:run",
-    "test:run": "nyc --reporter=text-summary mocha 'tests/**/*.spec.@(js|jsx)'",
-    "test:watch": "npm run test -- -- --watch"
+    "bump": "lerna publish --skip-git --skip-npm --cd-version",
+    "bootstrap": "lerna bootstrap",
+    "clean": "rimraf coverage lerna-debug.log && lerna run clean",
+    "lint": "eslint --ext js src",
+    "test": "jest --coverage",
+    "test:watch": "jest --coverage --watch"
   },
   "repository": {
     "type": "git",
@@ -43,28 +39,29 @@
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.1.1",
-    "babel-plugin-dev-expression": "^0.2.1",
-    "babel-plugin-rewire": "^1.0.0",
-    "babel-plugin-transform-export-extensions": "^6.22.0",
-    "babel-plugin-transform-object-rest-spread": "^6.22.0",
+    "babel-plugin-module-resolver": "^2.7.1",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-es2015": "^6.18.0",
-    "babel-register": "^6.22.0",
-    "chai": "^3.5.0",
     "coveralls": "^2.11.15",
-    "cross-env": "^4.0.0",
     "eslint": "^3.13.1",
-    "immutable": "^3.8.1",
-    "jest": "^20.0.4",
-    "mocha": "^3.2.0",
-    "nyc": "^10.1.2",
-    "redux": "^3.6.0",
-    "rimraf": "^2.6.0",
-    "rollup": "^0.49.2",
-    "sinon": "^2.0.0"
+    "lerna": "^2.0.0",
+    "rimraf": "^2.6.0"
   },
-  "dependencies": {
-    "invariant": "^2.2.2",
-    "lodash": "^4.17.4",
-    "messageformat": "^1.0.2"
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/scripts/*"
+    ],
+    "modulePaths": [
+      "<rootDir>/packages/"
+    ],
+    "resetMocks": true,
+    "setupFiles": [],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/scripts/*",
+      "<rootDir>/tests/"
+    ]
   }
 }

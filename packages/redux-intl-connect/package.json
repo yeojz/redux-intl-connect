@@ -1,0 +1,49 @@
+{
+  "name": "redux-intl-connect",
+  "version": "2.3.1",
+  "description": "Redux connect-agnostic library providing i18n and ICU Message Syntax support (Ember, Preact, React etc)",
+  "main": "dist/index.js",
+  "browser": "dist/browser.js",
+  "scripts": {
+    "build": "rollup -c",
+    "build:dev": "rollup -c -w",
+    "clean": "rimraf dist",
+    "test": "cross-env NODE_ENV=test npm run test:run",
+    "test:run": "nyc --reporter=text-summary mocha 'tests/**/*.spec.@(js|jsx)'",
+    "test:watch": "npm run test -- -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yeojz/redux-intl-connect.git"
+  },
+  "keywords": [
+    "format",
+    "formatmessage",
+    "formatting",
+    "globalization",
+    "i18n",
+    "internationalization",
+    "intl",
+    "local",
+    "localization",
+    "preact",
+    "react",
+    "reactjs",
+    "translate",
+    "translation"
+  ],
+  "author": "Gerald Yeo <contact@fusedthought.com>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/yeojz/redux-intl-connect/issues"
+  },
+  "homepage": "https://github.com/yeojz/redux-intl-connect#readme",
+  "devDependencies": {
+    "coveralls": "^2.11.15",
+    "rimraf": "^2.6.0"
+  },
+  "dependencies": {
+    "invariant": "^2.2.2",
+    "messageformat": "^1.0.2"
+  }
+}

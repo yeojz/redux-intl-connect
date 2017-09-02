@@ -13,9 +13,9 @@ function connectIntl(connect, intlSelector) {
 
   const withIntl = injectIntl(connect, intlSelector);
 
-  return (...args) => (Component) => {
+  return (...args) => (Component) => (
     connect(...args)(withIntl(Component))
-  };
+  );
 }
 
 export default connectIntl;

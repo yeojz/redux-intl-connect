@@ -6,9 +6,16 @@ Thank you for opening (and reading) this document. :)
 We are open to, and grateful for, any contributions made.
 
 ## Semantic Versioning
+
 This repository generally follows semantic versioning. We release patch versions for bug fixes, minor versions for new features, and major versions for any breaking changes.
 
 All releases to npm or any other supported distribution channels will corresponding to a tagged commit.
+
+## To Start
+
+This packages makes use of lerna to bootstrap all child packages together.
+
+Run `npm run bootstrap` to start.
 
 ## Testing
 

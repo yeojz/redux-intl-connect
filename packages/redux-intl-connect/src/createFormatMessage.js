@@ -2,8 +2,12 @@ import invariant from 'invariant';
 import cacheMessages from './cacheMessages';
 
 function interpolate(message, values = {}) {
-  if (message && typeof message === 'function') {
+  if (typeof message === 'function') {
     return message(values);
+  }
+
+  if (typeof message === 'string') {
+    return message;
   }
 
   return null;
