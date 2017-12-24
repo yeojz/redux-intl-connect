@@ -42,7 +42,7 @@
   "homepage": "https://github.com/yeojz/redux-intl-connect#readme",
   "devDependencies": {
     "babel-cli": "^6.18.0",
-    "babel-eslint": "^7.1.1",
+    "babel-eslint": "^8.1.0",
     "babel-plugin-dev-expression": "^0.2.1",
     "babel-plugin-rewire": "^1.0.0",
     "babel-plugin-transform-export-extensions": "^6.22.0",
