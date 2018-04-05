@@ -63,6 +63,6 @@
   "dependencies": {
     "invariant": "^2.2.2",
     "lodash": "^4.17.4",
-    "messageformat": "^1.0.2"
+    "messageformat": "^2.0.0"
   }
 }
